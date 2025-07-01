@@ -24,10 +24,17 @@
                 </div>
 
                 <div class="px-3 banner-badge bg-primary">
-                    <a href="{{ route('login') }}" class="gap-2 py-1 d-flex align-items-center justify-content-center text-light fw-semibold">
-                        <span>Masuk</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    @auth
+                        <a href="{{ route('dashboard.index') }}" class="gap-2 py-1 d-flex align-items-center justify-content-center text-light fw-semibold">
+                            <span>Dashboard</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    @else
+                        <a href="{{ route('login') }}" class="gap-2 py-1 d-flex align-items-center justify-content-center text-light fw-semibold">
+                            <span>Masuk</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>

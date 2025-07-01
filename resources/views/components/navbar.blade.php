@@ -1,4 +1,4 @@
-<nav class="py-0 my-0 shadow-sm py-lg-2 navbar sticky-top bg-light">
+<nav class="py-0 my-0 shadow-sm navbar sticky-top bg-light">
     <div class="container py-0 my-0">
         <a class="gap-2 navbar-brand d-flex align-items-center" href="{{ route('home') }}">
             <img src="{{ url('assets/img/logo.png') }}" alt="Logo" class="logo" style="width: 40px;">
@@ -8,11 +8,18 @@
             </div>
         </a>
         <ul class="links" id="navbarNav1">
-            <li><a class="px-0 nav-link active" href="{{ route('home') }}#home">Home</a></li>
-            <li><a class="px-0 nav-link" href="{{ route('home') }}#profil-desa">Profil Desa</a></li>
-            <li><a class="px-0 nav-link" href="{{ route('home') }}#struktur-organisasi-kkn">Struktur Organisasi KKN</a>
+            <li>
+                <a class="px-0 nav-link active" href="{{ request()->url() === url('/') ? '#home' : route('home') . '#home' }}">Home</a>
             </li>
-            <li><a class="px-0 nav-link" href="{{ route('home') }}#projects">Projects</a></li>
+            <li>
+                <a class="px-0 nav-link" href="{{ request()->url() === url('/') ? '#profil-desa' : route('home') . '#profil-desa' }}">Profil Desa</a>
+            </li>
+            <li>
+                <a class="px-0 nav-link" href="{{ request()->url() === url('/') ? '#struktur-organisasi-kkn' : route('home') . '#struktur-organisasi-kkn' }}">Struktur Organisasi KKN</a>
+            </li>
+            <li>
+                <a class="px-0 nav-link" href="{{ request()->url() === url('/') ? '#projects' : route('home') . '#projects' }}">Projects</a>
+            </li>
         </ul>
         <!-- hamburger menu -->
         <div class="toggle_btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -35,11 +42,18 @@
             </div>
             <div class="pt-0 mt-0 offcanvas-body">
                 <ul class="d-flex flex-column align-items-start justify-content-start">
-                    <li><a class="px-0 py-0 nav-link active" href="{{ route('home') }}#home">Home</a></li>
-                    <li><a class="px-0 py-0 nav-link" href="{{ route('home') }}#profil-desa">Profil Desa</a></li>
-                    <li><a class="px-0 py-0 nav-link" href="{{ route('home') }}#struktur-organisasi-kkn">Struktur
-                            Organisasi KKN</a></li>
-                    <li><a class="px-0 py-0 nav-link" href="{{ route('home') }}#projects">Projects</a></li>
+                    <li>
+                        <a class="px-0 py-0 nav-link active" href="{{ request()->url() === url('/') ? '#home' : route('home') . '#home' }}">Home</a>
+                    </li>
+                    <li>
+                        <a class="px-0 py-0 nav-link" href="{{ request()->url() === url('/') ? '#profil-desa' : route('home') . '#profil-desa' }}">Profil Desa</a>
+                    </li>
+                    <li>
+                        <a class="px-0 py-0 nav-link" href="{{ request()->url() === url('/') ? '#struktur-organisasi-kkn' : route('home') . '#struktur-organisasi-kkn' }}">Struktur Organisasi KKN</a>
+                        </li>
+                    <li>
+                        <a class="px-0 py-0 nav-link" href="{{ request()->url() === url('/') ? '#projects' : route('home') . '#projects' }}">Projects</a>
+                    </li>
                 </ul>
             </div>
         </div>

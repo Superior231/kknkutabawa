@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'slug' => 'admin',
             'roles' => 'admin',
-            'password' => Hash::make('kaperr5r5'),
+            'password' => Hash::make('admin1234'),
         ]);
     }
 }
