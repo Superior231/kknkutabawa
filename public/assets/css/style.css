@@ -307,14 +307,15 @@ a {
 }
 
 .avatar {
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     border-radius: var(--radius-50);
     overflow: hidden;
     margin-right: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: var(--tran-03);
     background-color: var(--card-hover);
+    flex-shrink: 0;
 }
 .avatar img {
     width: 100%;
