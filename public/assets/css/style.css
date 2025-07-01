@@ -1,0 +1,485 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --body-color: #fffefe;
+    --primary-color: #061e34;
+    --primary-color-hover: #ffae00ce;
+    --secondary-color: #161326;
+    --card-color: #ffff;
+    --card-hover: #1b1731;
+    --text-color: #061e34;
+    --text-color-opacity: #061e34c0;
+    --text-color-muted: #6c757d;
+    --text-color-dark: rgb(10, 10, 10);
+    --navbar-color: #ffff;
+
+    --bg-blue: #0d6ffc;
+    --bg-soft-blue: #f1f5fb;
+    --bg-success: #188754;
+    --bg-warning: #ffc106;
+    --bg-success-opacity: rgba(0, 128, 0, 0.1);
+    --bg-warning-opacity: rgba(255, 215, 0, 0.18);
+    
+    /* Transisi */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+
+    /* Radius */
+    --radius-05: 5px;
+    --radius-10: 10px;
+    --radius-20: 20px;
+    --radius-50: 50px;
+    --radius-100: 100px;
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+.body {
+    background-color: var(--body-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+.bg-color {
+    background-color: var(--body-color);
+}
+.text-color {
+    color: var(--text-color);
+}
+.text-secondary {
+    color: var(--text-color-opacity);
+}
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+
+.fs-7,
+.badge span {
+    font-size: clamp(10px, 2vw, 12px) !important;
+}
+
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+#loading-screen {
+    background-color: var(--body-color);
+}
+#loading-screen.fade-out {
+    animation: fadeOut 1s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--tran-02);
+}
+
+
+/* Navbar */
+.navbar {
+    margin: auto;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+}
+
+.offcanvas-title h5,
+.navbar .navbar-brand span:nth-child(1) {
+    font-size: clamp(15px, 2vw, 20px);
+}
+#loading-screen h1 sup,
+.navbar .navbar-brand span:nth-child(1) sup,
+.navbar .navbar-brand span:nth-child(2) {
+    font-size: clamp(7px, 2vw, 12px);
+}
+.offcanvas-title span {
+    font-size: clamp(10px, 2vw, 15px);
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 15px 10px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+.navbar ul li a.active::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background: var(--primary-color);
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+}
+
+.navbar ul li:nth-child(1):after,
+.navbar ul li:nth-child(2):after,
+.navbar ul li:nth-child(3):after,
+.navbar ul li:nth-child(4):after {
+    content: "";
+    height: 3px;
+    width: 0;
+    background: var(--primary-color);
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.navbar ul li a:hover {
+    color: var(--primary-color);
+}
+
+.navbar ul li a.active {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.nav-btn button {
+    width: 80px;
+    height: 40px;
+    border-radius: 25px;
+}
+
+/* Hamburger Menu */
+.navbar .container .toggle_btn {
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 884px) {
+    .navbar .container .links {
+        display: none;
+    }
+
+    .navbar .container .toggle_btn {
+        display: block;
+        padding-right: 4.6%;
+    }
+
+    .navbar .container {
+        padding-left: 8.6%;
+    }
+}
+/* Navbar End */
+
+
+
+.banner {
+    height: calc(100vh - 70px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    overflow: hidden;
+    opacity: 0.9;
+}
+.banner > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    opacity: 1;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+}
+.banner-content .banner-badge {
+    background-color: var(--body-color);
+    padding: 10px;
+    border-radius: 30px;
+    width: fit-content;
+    box-shadow: 0 5px 0 #000;
+    transition: var(--tran-05);
+    transform: translateY(0);
+}
+.banner-content .banner-badge:last-child:active {
+  box-shadow: 0 2px 0 #000;
+  transform: translateY(3px);
+}
+.banner-content .banner-badge:last-child:hover {
+  box-shadow: 0 2px 0 #000;
+  filter: brightness(1.05);
+  transform: translateY(3px);
+  cursor: pointer;
+}
+.banner-content .banner-badge > * {
+    margin: 0px 5px;
+}
+
+.blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 16px;
+    font-size: clamp(25px, 5vw, 35px) !important;
+}
+
+/* Profil Desa */
+#profile-stats .col .card,
+#profile-description.card {
+    background-color: var(--card-color);
+    color: var(--text-color);
+    border-radius: var(--radius-10);
+    border: none;
+    border-top: 10px solid;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#profile-description.card {
+    border-top: none !important;
+}
+#profile-stats .col .card .card-body .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-10);
+}
+#profile-stats .col:nth-child(1) .card .card-body .icon,
+#profile-stats .col:nth-child(3) .card .card-body .icon{
+    background-color: var(--bg-success-opacity);
+}
+#profile-stats .col:nth-child(2) .card .card-body .icon {
+    background-color: var(--bg-warning-opacity);
+}
+
+#profile-stats .col:nth-child(1) .card:hover .card-body h5 {
+    color: var(--bg-blue);
+    transition: var(--tran-03);
+}
+#profile-stats .col:nth-child(2) .card:hover .card-body h5 {
+    color: var(--bg-warning);
+    transition: var(--tran-03);
+}
+#profile-stats .col:nth-child(3) .card:hover .card-body h5 {
+    color: var(--bg-success);
+    transition: var(--tran-03);
+}
+
+
+
+/* Struktur Organisasi KKN */
+#struktur-organisasi-kkn {
+    background-color: var(--bg-soft-blue);
+}
+#struktur-organisasi-kkn .card {
+    background-color: var(--card-color);
+    color: var(--text-color);
+    border-radius: var(--radius-20);
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--tran-03);
+    cursor: pointer;
+}
+#struktur-organisasi-kkn .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: var(--radius-50);
+    overflow: hidden;
+    margin-right: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--tran-03);
+    background-color: var(--card-hover);
+}
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#struktur-organisasi-kkn i {
+    color: var(--text-color-muted);
+}
+
+
+
+
+/* Profile */
+.body-profile {
+    background-color: var(--bg-soft-blue);
+    min-height: 100svh;
+}
+.body-profile #profile .card.card-profile,
+.body-profile #profile #other-members .card {
+    background-color: var(--card-color);
+    color: var(--text-color);
+    border-radius: var(--radius-20);
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.body-profile #profile .card.card-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    aspect-ratio: 1400 / 350;
+}
+
+.body-profile #profile .header {
+    position: relative;
+    align-items: end;
+    display: flex;
+    top: -50px;
+    left: 20px;
+}
+.body-profile #profile .header .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-100);
+    overflow: hidden;
+    margin-right: 10px;
+    background-color: var(--card-hover);
+    border: 3px solid var(--body-color);
+}
+.body-profile #profile .header .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.body-profile #profile .header .jobs {
+    position: relative;
+    top: -25px;
+}
+.body-profile #profile .header .jobs .badge {
+    border-radius: var(--radius-100);
+}
+.body-profile #profile .card-profile .card-body {
+    position: relative;
+    top: -50px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.body-profile #profile .card-footer {
+    background-color: var(--body-color);
+    border-radius: 0 0 20px 20px;
+    padding: 20px 20px 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.body-profile #profile .card-footer#social-media i {
+    color: var(--text-color-opacity);
+    font-size: larger;
+    padding: 0;
+    margin: 0;
+}
+.body-profile #profile .card-footer#social-media i:hover {
+    color: var(--bg-blue);
+    transition: var(--tran-03);
+}
+
+.body-profile #profile #other-members {
+    z-index: 1;
+}
+.body-profile #profile #other-members .card .card-header {
+    border-radius: var(--radius-20) var(--radius-20) 0 0;
+    background-color: var(--card-color);
+    color: var(--text-color);
+}
+.body-profile #profile #other-members .card .card-body {
+    overflow-y: scroll;
+    max-height: calc(100svh - 200px);
+}
+.body-profile #profile #other-members .card .card-body .member {
+    color: var(--text-color);
+    border-bottom: 1px solid #dee1e6;
+    padding: 10px 0;
+    position: relative;
+    transition: var(--tran-03);
+}
+.body-profile #profile #other-members .card .card-body .member:hover {
+    background-color: var(--bg-soft-blue);
+}
+.body-profile #profile #other-members .card .card-body .member .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-50);
+    overflow: hidden;
+    margin-right: 10px;
+    background-color: var(--card-hover);
+    position: absolute;
+}
+.body-profile #profile #other-members .card .card-body .member .info {
+    margin-left: 60px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#struktur-organisasi-kkn .username,
+.body-profile #profile #other-members .card .card-body .member .username,
+.body-profile #profile #other-members .card .card-body .member .role {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.body-profile #profile #other-members .card .card-body .member:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .body-profile #profile .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        top: -40px;
+        left: 0;
+    }
+    .body-profile #profile .avatar {
+        width: 80px;
+        height: 80px;
+        margin-right: 0px;
+    }
+    .body-profile #profile .header .jobs {
+        align-self: flex-start;
+        position: relative;
+        margin-left: 15px;
+    }
+    .body-profile #profile .card-profile .card-body {
+        position: relative;
+        top: -60px;
+        left: 0 !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .body-profile #profile #other-members .card .card-body {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}

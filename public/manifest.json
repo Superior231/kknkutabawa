@@ -1,0 +1,17 @@
+{
+  "name": "KKN DESA KUTABAWA 2025",
+  "short_name": "KKN DESA KUTABAWA",
+  "start_url": "/",
+  "background_color": "#fefeff",
+  "description": "KKN DESA KUTABAWA 2025",
+  "display": "fullscreen",
+  "theme_color": "#061e34",
+  "icons": [
+    {
+      "src": "/assets/img/logo.png",
+      "sizes": "720x720",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
