@@ -81,9 +81,9 @@
                         </div>
                         <div class="gap-1 card-body d-flex flex-column align-items-center justify-content-center">
                             <div class="qr-code">
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ urlencode(request()->getSchemeAndHttpHost() . '/@' . $user->name) }}&size=100x100" alt="QR Code">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ urlencode(request()->getSchemeAndHttpHost() . '/@' . $user->slug) }}&size=100x100" alt="QR Code">
                             </div>
-                            <span class="text-center text-muted fs-7">{{ request()->getSchemeAndHttpHost() . '/@' . $user->name }}</span>
+                            <span class="text-center text-muted fs-7">{{ request()->getSchemeAndHttpHost() . '/@' . $user->slug }}</span>
                         </div>
                     </div>
                     <div class="mt-3 card">

@@ -12,13 +12,12 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes(['register' => false]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/@{slug}', [HomeController::class, 'show_profile'])->name('show.profile');
 
 Route::prefix('/')->middleware('auth')->group(function() {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('profile', ProfileController::class);
     Route::delete('/profile/delete-avatar/{id}', [ProfileController::class, 'deleteAvatar'])->name('delete.avatar');
-
-    Route::get('/@{slug}', [HomeController::class, 'show_profile'])->name('show.profile');
 });
 
 
