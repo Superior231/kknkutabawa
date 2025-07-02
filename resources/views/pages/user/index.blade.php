@@ -63,9 +63,9 @@
                         <td>
                             <div class="status d-flex justify-content-center pe-3">
                                 @if ($user->status == 'approved')
-                                    <span class="badge bg-success">Approved</span>
+                                    <i class='bx bxs-check-circle text-success fs-3'></i>
                                 @else
-                                    <span class="badge bg-danger">Banned</span>
+                                    <i class='bx bxs-x-circle text-danger fs-3'></i>
                                 @endif
                             </div>
                         </td>
@@ -75,14 +75,17 @@
                                     class="p-2 rounded btn btn-primary d-flex align-items-center justify-content-center">
                                     <i class='p-0 m-0 bx bxs-pencil'></i>
                                 </a>
-                                <form id="delete-user-form-{{ $user->id }}" action="{{ route('user.destroy', $user->id) }}" method="POST" class="d-inline">
-                                    @csrf @method('DELETE')
-                                    
-                                    <button type="button" style="cursor: pointer;"
-                                        class="p-2 rounded btn btn-danger d-flex align-items-center justify-content-center" onclick="confirmDeleteUser({{ $user->id }})">
-                                        <i class='p-0 m-0 bx bxs-trash'></i>
-                                    </button>
-                                </form>
+
+                                @if (Auth::user()->id !== $user->id)
+                                    <form id="delete-user-form-{{ $user->id }}" action="{{ route('user.destroy', $user->id) }}" method="POST" class="d-inline">
+                                        @csrf @method('DELETE')
+                                        
+                                        <button type="button" style="cursor: pointer;"
+                                            class="p-2 rounded btn btn-danger d-flex align-items-center justify-content-center" onclick="confirmDeleteUser({{ $user->id }})">
+                                            <i class='p-0 m-0 bx bxs-trash'></i>
+                                        </button>
+                                    </form>
+                                @endif
                             </div>
                         </td>
                     </tr>

@@ -70,7 +70,6 @@
                         <div class="w-100">
                             <label for="roles">Role</label>
                             <select name="roles" id="roles" class="form-select" required>
-                                <option value="">Pilih Role</option>
                                 <option value="user" {{ $user->roles == 'user' ? 'selected' : '' }}>User</option>
                                 <option value="admin" {{ $user->roles == 'admin' ? 'selected' : '' }}>Admin</option>
                             </select>
@@ -79,9 +78,8 @@
                         <div class="w-100">
                             <label for="status">Status</label>
                             <select name="status" id="status" class="form-select" required>
-                                <option value="">Pilih Status</option>
                                 <option value="approved" {{ $user->status == 'approved' ? 'selected' : '' }}>Approved</option>
-                                <option value="suspend" {{ $user->status == 'suspend' ? 'selected' : '' }}>Suspend</option>
+                                <option value="banned" {{ $user->status == 'banned' ? 'selected' : '' }}>Banned</option>
                             </select>
                         </div>
                     </div>

@@ -139,6 +139,8 @@ class UserController extends Controller
             $user->slug = Str::slug($newName);
         }
 
+        $user->roles = $request->input('roles', $user->roles);
+        $user->status = $request->input('status', $user->status);
         $user->jobs = $request->input('jobs', $user->jobs);
         $user->prodi = $request->input('prodi', $user->prodi);
         $user->description = $request->input('description', $user->description);

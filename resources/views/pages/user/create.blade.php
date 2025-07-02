@@ -40,7 +40,7 @@
                         <div class="w-100">
                             <label for="roles">Role</label>
                             <select name="roles" id="roles" class="bg-transparent border-secondary text-light form-select" required>
-                                <option value="user" class="text-color" selected>User</option>
+                                <option value="user" class="text-color">User</option>
                                 <option value="admin" class="text-color">Admin</option>
                             </select>
                         </div>
@@ -48,8 +48,8 @@
                         <div class="w-100">
                             <label for="status">Status</label>
                             <select name="status" id="status" class="bg-transparent border-secondary text-light form-select" required>
-                                <option value="approved" class="text-color" selected>Approved</option>
-                                <option value="suspend" class="text-color">Suspend</option>
+                                <option value="approved" class="text-color">Approved</option>
+                                <option value="banned" class="text-color">Banned</option>
                             </select>
                         </div>
                     </div>
