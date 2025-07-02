@@ -42,11 +42,11 @@ class ProfileController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|string|max:30|unique:users,name,' . $id,
+            'name' => 'required|string|max:50|unique:users,name,' . $id,
             'avatar' => 'image|mimes:jpg,jpeg,png,webp|max:5048',
             'password' => 'nullable|min:8|max:255',
         ], [
-            'name.max' => 'Username tidak boleh lebih dari 30 karakter.',
+            'name.max' => 'Username tidak boleh lebih dari 50 karakter.',
             'name.unique' => 'Username sudah digunakan.',
             'avatar.image' => 'Avatar harus berupa gambar.',
             'avatar.mimes' => 'Avatar harus berupa gambar dengan ekstensi .jpg, .jpeg, .png, atau .webp.',
