@@ -20,12 +20,13 @@
             </a>
         </div>
         <hr>
-        <table class="table table-striped" id="staffTable">
+        <table class="table table-striped table-hover" id="staffTable">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Role</th>
                     <th>Jobs</th>
+                    <th>Prodi</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Action</th>
                 </tr>
@@ -43,7 +44,7 @@
                                             src="https://ui-avatars.com/api/?background=random&name={{ urlencode($user->name) }}">
                                     @endif
                                 </div>
-                                <span class="py-0 my-0 fw-medium">{{ $user->name }}</span>
+                                <span class="py-0 my-0 fw-medium username" data-bs-toggle="tooltip" title="{{ $user->name }}">{{ $user->name }}</span>
                             </div>
                         </td>
                         <td>
@@ -56,9 +57,12 @@
                             </div>
                         </td>
                         <td>
-                            <div class="gap-1 d-flex align-items-center">
-                                {{ $user->jobs }}
-                            </div>
+                            @foreach (explode(', ', $user->jobs) as $job)
+                                <span class="badge bg-primary rounded-pill">{{ $job }}</span>
+                            @endforeach
+                        </td>
+                        <td>
+                            <span class="py-0 my-0 fw-medium text-nowrap">{{ $user->prodi }}</span>
                         </td>
                         <td>
                             <div class="status d-flex justify-content-center pe-3">

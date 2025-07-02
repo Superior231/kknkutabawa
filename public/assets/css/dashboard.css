@@ -426,11 +426,13 @@ header .image-text .header-text {
     height: 100%;
     object-fit: cover;
 }
-.table-responsive select,
-.table-responsive input {
-    box-shadow: none !important;
+#staffTable .username {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-
 
 
 
