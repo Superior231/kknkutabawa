@@ -41,7 +41,7 @@
                 <h5 class="fw-bold">{{ Auth::user()->name }}</h5>
                 <p class="card-text">
                     @if (Auth::user()->description)
-                        {{ Auth::user()->description }}
+                        {!! Auth::user()->description !!}
                     @else
                         Belum ada deskripsi.
                     @endif

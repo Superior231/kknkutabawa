@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @push('styles')
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.2/ckeditor5.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style>
         .navbar {
@@ -94,10 +95,15 @@
                     </div>
 
                     <div class="mb-3">
-                        <div class="form-floating">
-                            <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2"
-                                style="height: 100px">{{ old('description') }}</textarea>
-                            <label for="floatingTextarea2">Deskripsi</label>
+                        <div id="editor-container">
+                            <div class="mb-2 d-flex justify-content-between align-items-center">
+                                <label for="description" class="text-dark">Deskripsi</label>
+                                <button onclick="toggleFullScreen()" type="button" class="gap-1 bg-transparent border-0 d-flex align-items-center">
+                                    <i class="py-0 my-0 bx bx-fullscreen text-dark" id="fullscreen-icon"></i>
+                                    <span class="text-dark" id="fullscreen-text">Fullscreen</span>
+                                </button>
+                            </div>
+                            <textarea name="description" id="description">{{ old('description') }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -210,7 +216,41 @@
             $('#jobs-input').val($('#jobs-select').val()?.join(', ') ?? '');
             $('#prodi-input').val($('#prodi-select').val() ?? '');
         });
-    </script>    
+    </script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/42.0.2/ckeditor5.js",
+                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/42.0.2/"
+            }
+        }
+    </script>
+    <script type="module" src="{{ url('assets/js/ckeditor.js') }}"></script>
+
+    <script>
+        let isFullscreen = false;
+
+        function toggleFullScreen() {
+            const container = document.getElementById('editor-container');
+            const icon = document.getElementById('fullscreen-icon');
+            const text = document.getElementById('fullscreen-text');
+
+            isFullscreen = !isFullscreen;
+
+            if (isFullscreen) {
+                container.classList.add('editor-fullscreen');
+                icon.classList.remove('bx-fullscreen');
+                icon.classList.add('bx-x');
+                text.textContent = 'Close';
+            } else {
+                container.classList.remove('editor-fullscreen');
+                icon.classList.remove('bx-x');
+                icon.classList.add('bx-fullscreen');
+                text.textContent = 'Fullscreen';
+            }
+        }
+    </script>
 
     <script>
         function deleteAvatar(userId) {
