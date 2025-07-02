@@ -95,7 +95,7 @@
                             style="width: 100%;">
                             @foreach ($jobs as $job)
                                 <option value="{{ $job }}"
-                                    {{ in_array($job, explode(',', Auth::user()->jobs)) ? 'selected' : '' }}>
+                                    {{ in_array($job, explode(', ', Auth::user()->jobs)) ? 'selected' : '' }}>
                                     {{ $job }}</option>
                             @endforeach
                         </select>
