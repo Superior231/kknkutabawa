@@ -83,7 +83,7 @@
             </li>
             @if (Auth::user()->roles == 'admin')
                 <li class="{{ $active == 'users' ? 'active' : '' }}">
-                    <a href="#" class="gap-2 d-flex align-items-center">
+                    <a href="{{ route('users.index') }}" class="gap-2 d-flex align-items-center">
                         <i class='bx bxs-group fs-4'></i>
                         <span class="py-0 my-0">Users</span>
                     </a>
