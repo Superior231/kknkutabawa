@@ -67,9 +67,9 @@
                     <h5 class="card-title">Data</h5>
                     <hr class="bg-secondary">
                     <div class="mb-2">
-                        <label for="name">Nama</label>
+                        <label for="name">Username</label>
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                            id="name" placeholder="Masukkan namamu" value="{{ Auth::user()->name }}" required>
+                            id="name" placeholder="Masukkan username" value="{{ Auth::user()->name }}" required>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -77,15 +77,25 @@
                         @enderror
                     </div>
 
+                    <div class="mb-2">
+                        <label for="fullname">Nama Lengkap</label>
+                        <input type="text" name="fullname" class="form-control @error('fullname') is-invalid @enderror"
+                            id="fullname" placeholder="Masukkan nama lengkap" value="{{ $user->fullname }}" required>
+                        @error('fullname')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
                     <div class="mb-3">
-                        <label for="prodi-select">Prodi</label>
-                        <select class="form-select" id="prodi-select" name="prodi" style="width: 100%;">
+                        <label for="prodi">Prodi</label>
+                        <select name="prodi" id="prodi" class="form-select">
+                            <option value="" selected>Select</option>
                             @foreach ($prodi as $item)
-                                <option value="{{ $item }}" {{ Auth::user()->prodi === $item ? 'selected' : '' }}>
-                                    {{ $item }}</option>
+                                <option value="{{ $item }}" {{ Auth::user()->prodi === $item ? 'selected' : '' }}>{{ $item }}</option>
                             @endforeach
                         </select>
-                        <input type="hidden" name="prodi" id="prodi-input" value="">
                     </div>
 
                     <div class="mb-3">
@@ -202,14 +212,13 @@
             width: '100%',
         };
     
-        $('#jobs-select, #prodi-select').select2(selectOptions).on('change', function () {
+        $('#jobs-select').select2(selectOptions).on('change', function () {
             const selectedValues = $(this).val();
             $(`#${this.id}-input`).val(selectedValues ? selectedValues.join(', ') : '');
         });
     
         $('form').on('submit', function () {
             $('#jobs-input').val($('#jobs-select').val()?.join(', ') ?? '');
-            $('#prodi-input').val($('#prodi-select').val() ?? '');
         });
     </script>
 

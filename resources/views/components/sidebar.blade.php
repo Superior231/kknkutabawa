@@ -9,16 +9,14 @@
 
     <div class="mt-4 menu-bar">
         <ul class="menu-links">
-            @if (Auth::user()->roles == 'admin')
-                <li>
-                    <a href="{{ route('dashboard.index') }}"
-                        class="side-link {{ $active === 'dashboard' ? 'active' : '' }}" data-bs-toggle="tooltip"
-                        data-bs-placement="right" data-bs-title="Dashboard">
-                        <i class='bx bxs-home icon'></i>
-                        <span class="px-0 mx-0 nav-text">Dashboard</span>
-                    </a>
-                </li>
-            @endif
+            <li>
+                <a href="{{ route('dashboard.index') }}"
+                    class="side-link {{ $active === 'dashboard' ? 'active' : '' }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Dashboard">
+                    <i class='bx bxs-home icon'></i>
+                    <span class="px-0 mx-0 nav-text">Dashboard</span>
+                </a>
+            </li>
             <li>
                 <a href="{{ route('profile.index') }}"
                     class="side-link {{ $active === 'my profile' ? 'active' : '' }}" data-bs-toggle="tooltip"

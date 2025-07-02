@@ -41,10 +41,10 @@
                                         <img class="img" src="{{ asset('storage/avatars/' . $user->avatar) }}">
                                     @else
                                         <img class="img"
-                                            src="https://ui-avatars.com/api/?background=random&name={{ urlencode($user->name) }}">
+                                            src="https://ui-avatars.com/api/?background=random&name={{ urlencode($user->fullname) }}">
                                     @endif
                                 </div>
-                                <span class="py-0 my-0 fw-medium username" data-bs-toggle="tooltip" title="{{ $user->name }}">{{ $user->name }}</span>
+                                <span class="py-0 my-0 fw-medium username" data-bs-toggle="tooltip" title="{{ $user->fullname }}">{{ $user->fullname }}</span>
                             </div>
                         </td>
                         <td>
@@ -58,7 +58,7 @@
                         </td>
                         <td>
                             @foreach (explode(', ', $user->jobs) as $job)
-                                <span class="badge bg-primary rounded-pill">{{ $job }}</span>
+                                <span class="badge bg-primary rounded-pill {{ $user->jobs === 'Dosen Pembimbing Lapangan' ? 'text-warning' : 'text-light' }}">{{ $job }}</span>
                             @endforeach
                         </td>
                         <td>

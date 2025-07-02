@@ -14,10 +14,10 @@
                             <img class="img" src="{{ asset('storage/avatars/' . Auth::user()->avatar) }}">
                         @else
                             <img class="img"
-                                src="https://ui-avatars.com/api/?background=random&name={{ urlencode(Auth::user()->name) }}">
+                                src="https://ui-avatars.com/api/?background=random&name={{ urlencode(Auth::user()->fullname) }}">
                         @endif
                     </div>
-                    <span class="text-light nav-username">&nbsp;{{ Auth::user()->name }}</span>
+                    <span class="text-light nav-username">&nbsp;{{ Auth::user()->fullname }}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end position-absolute" aria-labelledby="navbarDropdownMenuLink">
                     <li>
@@ -61,14 +61,12 @@
     <hr class="py-0 my-0 border-light">
     <div class="px-0 mx-0 offcanvas-body">
         <ul class="list-unstyled">
-            @if (Auth::user()->roles == 'admin')
-                <li class="{{ $active == 'dashboard' ? 'active' : '' }}">
-                    <a href="{{ route('dashboard.index') }}" class="gap-2 d-flex align-items-center">
-                        <i class='bx bxs-home fs-4'></i>
-                        <span class="py-0 my-0">Dashboard</span>
-                    </a>
-                </li>
-            @endif
+            <li class="{{ $active == 'dashboard' ? 'active' : '' }}">
+                <a href="{{ route('dashboard.index') }}" class="gap-2 d-flex align-items-center">
+                    <i class='bx bxs-home fs-4'></i>
+                    <span class="py-0 my-0">Dashboard</span>
+                </a>
+            </li>
             <li class="{{ $active == 'my profile' ? 'active' : '' }}">
                 <a href="{{ route('profile.index') }}" class="gap-2 d-flex align-items-center">
                     <i class='bx bxs-user fs-4'></i>

@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'fullname',
         'slug',
         'avatar',
         'jobs',
@@ -60,7 +61,7 @@ class User extends Authenticatable
     public static function getJobs(): array
     {
         return [
-            "Dosen Pembimbing Lapangan", "Koordinator Desa", "Wakil Koordinator Desa", "Sekertaris", "Bendahara", "Perlengkapan", "PDD", "Pilar Ekonomi", "Pilar Jati Diri", "Pilar Kesehatan", "Pilar Lingkungan", "Pilar Pendidikan"
+            "Administrator", "Dosen Pembimbing Lapangan", "Koordinator Desa", "Wakil Koordinator Desa", "Sekertaris", "Bendahara", "Perlengkapan", "PDD", "Pilar Ekonomi", "Pilar Jati Diri", "Pilar Kesehatan", "Pilar Lingkungan", "Pilar Pendidikan"
         ];
     }
 

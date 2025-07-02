@@ -42,12 +42,15 @@ class ProfileController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|string|max:50|unique:users,name,' . $id,
+            'name' => 'required|string|max:30|unique:users,name,' . $id,
+            'fullname' => 'required|string|max:255',
             'avatar' => 'image|mimes:jpg,jpeg,png,webp|max:5048',
             'password' => 'nullable|min:8|max:255',
         ], [
-            'name.max' => 'Username tidak boleh lebih dari 50 karakter.',
+            'name.max' => 'Username tidak boleh lebih dari 30 karakter.',
             'name.unique' => 'Username sudah digunakan.',
+            'fullname.max' => 'Nama lengkap tidak boleh lebih dari 255 karakter.',
+            'fullname.required' => 'Nama lengkap harus diisi.',
             'avatar.image' => 'Avatar harus berupa gambar.',
             'avatar.mimes' => 'Avatar harus berupa gambar dengan ekstensi .jpg, .jpeg, .png, atau .webp.',
             'avatar.max' => 'Ukuran avatar tidak boleh lebih dari 5MB.',
@@ -73,7 +76,7 @@ class ProfileController extends Controller
             $user->slug = Str::slug($newName);
         }        
 
-
+        $user->fullname = $request->input('fullname', $user->fullname);
         $user->jobs = $request->input('jobs', $user->jobs);
         $user->prodi = $request->input('prodi', $user->prodi);
         $user->description = $request->input('description', $user->description);

@@ -38,7 +38,7 @@
                     data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile">
                     <i class='p-0 m-0 bx bxs-pencil fs-3 text-color'></i>
                 </a>
-                <h5 class="fw-bold">{{ Auth::user()->name }}</h5>
+                <h5 class="fw-bold">{{ Auth::user()->fullname }}</h5>
                 <p class="card-text">
                     @if (Auth::user()->description)
                         {!! Auth::user()->description !!}

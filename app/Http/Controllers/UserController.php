@@ -44,24 +44,28 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validatedData =$request->validate([
-            'name' => ['required', 'string', 'max:255', 'unique:users'],
-            'slug' => ['nullable', 'string', 'max:255', 'unique:users'],
-            'jobs' => ['nullable', 'string', 'max:255'],
-            'prodi' => ['nullable', 'string', 'max:255'],
-            'description' => ['nullable', 'string'],
-            'instagram' => ['nullable', 'url'],
-            'facebook' => ['nullable', 'url'],
-            'linkedin' => ['nullable', 'url'],
-            'tiktok' => ['nullable', 'url'],
-            'twitter' => ['nullable', 'url'],
-            'roles' => ['required', 'string', 'in:user,admin'],
-            'status' => ['required', 'string', 'in:approved,suspend'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name' => 'required|string|max:30|unique:users',
+            'fullname' => 'required|string|max:255',
+            'slug' => 'nullable|string|max:255|unique:users',
+            'jobs' => 'nullable|string|max:255',
+            'prodi' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'instagram' => 'nullable|url',
+            'facebook' => 'nullable|url',
+            'linkedin' => 'nullable|url',
+            'tiktok' => 'nullable|url',
+            'twitter' => 'nullable|url',
+            'roles' => 'required|string|in:user,admin',
+            'status' => 'required|string|in:approved,suspend',
+            'password' => 'required|string|min:8|confirmed',
         ], [
             'name.unique' => 'Username sudah digunakan',
             'name.required' => 'Username harus diisi',
+            'name.max' => 'Username tidak boleh lebih dari 30 karakter.',
             'slug.unique' => 'Slug sudah digunakan',
             'slug.max' => 'Slug terlalu panjang',
+            'fullname.max' => 'Nama lengkap tidak boleh lebih dari 255 karakter.',
+            'fullname.required' => 'Nama lengkap harus diisi.',
             'jobs.string' => 'Pekerjaan harus berupa string',
             'jobs.max' => 'Pekerjaan terlalu panjang',
             'prodi.string' => 'Prodi harus berupa string',
@@ -113,12 +117,15 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|string|max:50|unique:users,name,' . $id,
+            'name' => 'required|string|max:30|unique:users,name,' . $id,
+            'fullname' => 'required|string|max:255',
             'avatar' => 'image|mimes:jpg,jpeg,png,webp|max:5048',
             'password' => 'nullable|min:8|max:255',
         ], [
-            'name.max' => 'Username tidak boleh lebih dari 50 karakter.',
+            'name.max' => 'Username tidak boleh lebih dari 30 karakter.',
             'name.unique' => 'Username sudah digunakan.',
+            'fullname.max' => 'Nama lengkap tidak boleh lebih dari 255 karakter.',
+            'fullname.required' => 'Nama lengkap harus diisi.',
             'avatar.image' => 'Avatar harus berupa gambar.',
             'avatar.mimes' => 'Avatar harus berupa gambar dengan ekstensi .jpg, .jpeg, .png, atau .webp.',
             'avatar.max' => 'Ukuran avatar tidak boleh lebih dari 5MB.',
@@ -139,6 +146,7 @@ class UserController extends Controller
             $user->slug = Str::slug($newName);
         }
 
+        $user->fullname = $request->input('fullname', $user->fullname);
         $user->roles = $request->input('roles', $user->roles);
         $user->status = $request->input('status', $user->status);
         $user->jobs = $request->input('jobs', $user->jobs);
