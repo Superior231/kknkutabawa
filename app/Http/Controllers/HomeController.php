@@ -23,7 +23,7 @@ class HomeController extends Controller
         $user = $users->where('slug', $slug)->firstOrFail();
 
         return view('pages.showProfile', [
-            'title' => $user->name . ' (@' . $user->slug . ') - KKN Desa Kutabawa',
+            'title' => $user->fullname . ' (@' . $user->slug . ') - KKN Desa Kutabawa',
             'navTitle' => '',
             'active' => '',
             'users' => $users,
