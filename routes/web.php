@@ -17,6 +17,8 @@ Route::prefix('/')->middleware('auth')->group(function() {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('profile', ProfileController::class);
     Route::delete('/profile/delete-avatar/{id}', [ProfileController::class, 'deleteAvatar'])->name('delete.avatar');
+
+    Route::get('/@{slug}', [HomeController::class, 'show_profile'])->name('show.profile');
 });
 
 

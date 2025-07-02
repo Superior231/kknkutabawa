@@ -8,7 +8,6 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbarNav1" data-bs-offset="70" tabindex="0">
-    @include('components.loading')
     <div class="body">
         @yield('content')
     </div>

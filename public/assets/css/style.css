@@ -331,19 +331,15 @@ a {
 
 
 /* Profile */
-.body-profile {
-    background-color: var(--bg-soft-blue);
-    min-height: 100svh;
-}
-.body-profile #profile .card.card-profile,
-.body-profile #profile #other-members .card {
+#profile .card.card-profile,
+#profile #other-members .card {
     background-color: var(--card-color);
     color: var(--text-color);
     border-radius: var(--radius-20);
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.body-profile #profile .card.card-profile img {
+#profile .card.card-profile img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -351,14 +347,14 @@ a {
     aspect-ratio: 1400 / 350;
 }
 
-.body-profile #profile .header {
+#profile .header {
     position: relative;
     align-items: end;
     display: flex;
     top: -50px;
     left: 20px;
 }
-.body-profile #profile .header .avatar {
+#profile .header .avatar {
     width: 120px;
     height: 120px;
     border-radius: var(--radius-100);
@@ -367,25 +363,25 @@ a {
     background-color: var(--card-hover);
     border: 3px solid var(--body-color);
 }
-.body-profile #profile .header .avatar img {
+#profile .header .avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.body-profile #profile .header .jobs {
+#profile .header .jobs {
     position: relative;
     top: -25px;
 }
-.body-profile #profile .header .jobs .badge {
+#profile .header .jobs .badge {
     border-radius: var(--radius-100);
 }
-.body-profile #profile .card-profile .card-body {
+#profile .card-profile .card-body {
     position: relative;
     top: -50px;
     padding-left: 35px;
     padding-right: 35px;
 }
-.body-profile #profile .card-footer {
+#profile .card-footer {
     background-color: var(--body-color);
     border-radius: 0 0 20px 20px;
     padding: 20px 20px 15px 20px;
@@ -393,40 +389,40 @@ a {
     align-items: center;
     justify-content: end;
 }
-.body-profile #profile .card-footer#social-media i {
+#profile .card-footer#social-media i {
     color: var(--text-color-opacity);
     font-size: larger;
     padding: 0;
     margin: 0;
 }
-.body-profile #profile .card-footer#social-media i:hover {
+#profile .card-footer#social-media i:hover {
     color: var(--bg-blue);
     transition: var(--tran-03);
 }
 
-.body-profile #profile #other-members {
+#profile #other-members {
     z-index: 1;
 }
-.body-profile #profile #other-members .card .card-header {
+#profile #other-members .card .card-header {
     border-radius: var(--radius-20) var(--radius-20) 0 0;
     background-color: var(--card-color);
     color: var(--text-color);
 }
-.body-profile #profile #other-members .card .card-body {
-    overflow-y: scroll;
+#profile #other-members .card .card-body {
+    overflow-y: auto;
     max-height: calc(100svh - 200px);
 }
-.body-profile #profile #other-members .card .card-body .member {
+#profile #other-members .card .card-body .member {
     color: var(--text-color);
     border-bottom: 1px solid #dee1e6;
     padding: 10px 0;
     position: relative;
     transition: var(--tran-03);
 }
-.body-profile #profile #other-members .card .card-body .member:hover {
+#profile #other-members .card .card-body .member:hover {
     background-color: var(--bg-soft-blue);
 }
-.body-profile #profile #other-members .card .card-body .member .avatar {
+#profile #other-members .card .card-body .member .avatar {
     width: 50px;
     height: 50px;
     border-radius: var(--radius-50);
@@ -435,50 +431,50 @@ a {
     background-color: var(--card-hover);
     position: absolute;
 }
-.body-profile #profile #other-members .card .card-body .member .info {
+#profile #other-members .card .card-body .member .info {
     margin-left: 60px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 #struktur-organisasi-kkn .username,
-.body-profile #profile #other-members .card .card-body .member .username,
-.body-profile #profile #other-members .card .card-body .member .role {
+#profile #other-members .card .card-body .member .username,
+#profile #other-members .card .card-body .member .role {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.body-profile #profile #other-members .card .card-body .member:last-child {
+#profile #other-members .card .card-body .member:last-child {
     border-bottom: none;
 }
 
 @media (max-width: 768px) {
-    .body-profile #profile .header {
+    #profile .header {
         flex-direction: column;
         align-items: center;
         gap: 30px;
         top: -40px;
         left: 0;
     }
-    .body-profile #profile .avatar {
+    #profile .avatar {
         width: 80px;
         height: 80px;
         margin-right: 0px;
     }
-    .body-profile #profile .header .jobs {
+    #profile .header .jobs {
         align-self: flex-start;
         position: relative;
         margin-left: 15px;
     }
-    .body-profile #profile .card-profile .card-body {
+    #profile .card-profile .card-body {
         position: relative;
         top: -60px;
         left: 0 !important;
         padding-left: 20px !important;
         padding-right: 20px !important;
     }
-    .body-profile #profile #other-members .card .card-body {
+    #profile #other-members .card .card-body {
         padding-left: 20px !important;
         padding-right: 20px !important;
     }

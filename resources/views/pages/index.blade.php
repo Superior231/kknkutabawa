@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    @include('components.loading')
     @include('components.navbar')
     <section class="banner position-relative" id="home">
         <img src="{{ url('assets/img/banner.jpg') }}" alt="Banner Image">
@@ -112,235 +113,65 @@
         <div class="container">
             <h1 class="fw-bold blockquote">Struktur Organisasi KKN</h1>
             <div class="mt-5 mb-3 row justify-content-center">
-                <div class="col col-md-auto">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/nadia.png">
+                @forelse ($users as $user)
+                    @if ($user->jobs === 'Dosen Pembimbing Lapangan')
+                        <div class="col col-md-auto">
+                            <a href="{{ route('show.profile', $user->slug) }}" class="card">
+                                <div class="gap-0 card-body d-flex justify-content-between">
+                                    <div class="d-flex">
+                                        <div class="avatar">
+                                            @if (!empty($user->avatar))
+                                                <img class="img" src="{{ asset('storage/avatars/' . $user->avatar) }}" alt="avatar">
+                                            @else
+                                                <img class="img" src="https://ui-avatars.com/api/?background=random&name={{ urlencode($user->fullname) }}">
+                                            @endif
+                                        </div>
+                                        <div class="gap-0 d-flex flex-column justify-content-center">
+                                            <h6 class="py-0 my-0 username fw-bold">{{ $user->fullname }}</h6>
+                                            <span class="py-0 my-0 text-muted">{{ $user->jobs }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <i class='bx bx-chevron-right fs-4'></i>
+                                    </div>
                                 </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Nadya Shafira Salsabilla, ST., MT</h6>
-                                    <span class="py-0 my-0 text-muted">Dosen Pembimbing</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
+                    @endif
+                @empty
+                    <h6 class="py-0 my-0 text-nowrap">Belum ada DPL</h6>
+                @endforelse
             </div>
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-                <div class="col">
-                    <a href="profile.html" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/dani.png">
+                @forelse ($users as $user)
+                    @if ($user->jobs !== 'Dosen Pembimbing Lapangan' && $user->roles !== 'admin')
+                        <div class="col">
+                            <a href="{{ route('show.profile', $user->slug) }}" class="card">
+                                <div class="gap-0 card-body d-flex justify-content-between">
+                                    <div class="d-flex">
+                                        <div class="avatar">
+                                            @if (!empty($user->avatar))
+                                                <img class="img" src="{{ asset('storage/avatars/' . $user->avatar) }}" alt="avatar">
+                                            @else
+                                                <img class="img" src="https://ui-avatars.com/api/?background=random&name={{ urlencode($user->fullname) }}">
+                                            @endif
+                                        </div>
+                                        <div class="gap-0 d-flex flex-column justify-content-center">
+                                            <h6 class="py-0 my-0 username fw-bold">{{ $user->fullname }}</h6>
+                                            <span class="py-0 my-0 text-muted username">{{ $user->jobs }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <i class='bx bx-chevron-right fs-4'></i>
+                                    </div>
                                 </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Ahmad Dani Saputra</h6>
-                                    <span class="py-0 my-0 text-muted">Koordinator Desa</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/ade.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Ade Saputra</h6>
-                                    <span class="py-0 my-0 text-muted">Wakil Koordinator Desa</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/jafar.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Muhammad Syeh Abdul Jafar</h6>
-                                    <span class="py-0 my-0 text-muted">Pilar Lingkungan</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/fitri.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Fitria Dwi Setyani</h6>
-                                    <span class="py-0 my-0 text-muted">Pilar Pendidikan</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/efi.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Efi Handayani</h6>
-                                    <span class="py-0 my-0 text-muted">Pilar Jati Diri</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/reena.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Reena Della Sylvia</h6>
-                                    <span class="py-0 my-0 text-muted">Pilar Pendidikan</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/hikmal.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Hikmal Falah Agung Maulana</h6>
-                                    <span class="py-0 my-0 text-muted">Pilar Kesehatan</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/fikri.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Fikri Hidayat</h6>
-                                    <span class="py-0 my-0 text-muted">Pilar Jati Diri</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/yoga.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Yoga Pratama</h6>
-                                    <span class="py-0 my-0 text-muted">Pilar Kesehatan</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/april.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Aprilla Dwi Nazarina</h6>
-                                    <span class="py-0 my-0 text-muted">Pilar Ekonomi</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#" class="card">
-                        <div class="gap-0 card-body d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="/assets/img/wulan.png">
-                                </div>
-                                <div class="gap-0 d-flex flex-column justify-content-center">
-                                    <h6 class="py-0 my-0 username fw-bold">Dika Wulandari</h6>
-                                    <span class="py-0 my-0 text-muted">Pilar Ekonomi</span>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class='bx bx-chevron-right fs-4'></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    @endif
+                @empty
+                    <h6 class="py-0 my-0 text-nowrap">Belum ada anggota</h6>
+                @endforelse
             </div>
         </div>
     </section>

@@ -21,15 +21,9 @@
                             </div>
                         @endforeach
                     @else
-                        @if (Auth::user()->roles == 'admin')
-                            <div class="px-3 py-2 badge bg-primary text-light">
-                                <span>Administrator</span>
-                            </div>
-                        @else
-                            <div class="px-3 py-2 badge bg-primary text-light">
-                                <span>Tidak ada</span>
-                            </div>
-                        @endif
+                        <div class="px-3 py-2 badge bg-primary text-light">
+                            <span>Tidak ada</span>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -39,38 +33,38 @@
                     <i class='p-0 m-0 bx bxs-pencil fs-3 text-color'></i>
                 </a>
                 <h5 class="fw-bold">{{ Auth::user()->fullname }}</h5>
-                <p class="card-text">
+                <div class="card-text">
                     @if (Auth::user()->description)
                         {!! Auth::user()->description !!}
                     @else
                         Belum ada deskripsi.
                     @endif
-                </p>
+                </div>
             </div>
             <div class="card-footer" id="social-media">
                 <ul class="mb-0 list-inline">
                     <li class="list-inline-item">
-                        <a href="{{ Auth::user()->facebook }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook">
+                        <a href="{{ Auth::user()->facebook ? Auth::user()->facebook : '#' }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook">
                             <i class="fa-brands fa-facebook"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="{{ Auth::user()->instagram }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram">
+                        <a href="{{ Auth::user()->instagram ? Auth::user()->instagram : '#' }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="{{ Auth::user()->linkedin }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="LinkedIn">
+                        <a href="{{ Auth::user()->linkedin ? Auth::user()->linkedin : '#' }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="LinkedIn">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="{{ Auth::user()->twitter }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter">
+                        <a href="{{ Auth::user()->twitter ? Auth::user()->twitter : '#' }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter">
                             <i class="fa-brands fa-x-twitter"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="{{ Auth::user()->tiktok }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="TikTok">
+                        <a href="{{ Auth::user()->tiktok ? Auth::user()->tiktok : '#' }}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="TikTok">
                             <i class="fa-brands fa-tiktok"></i>
                         </a>
                     </li>
