@@ -56,4 +56,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public static function getJobs(): array
+    {
+        return [
+            "Dosen Pembimbing Lapangan", "Koordinator Desa", "Wakil Koordinator Desa", "Sekertaris", "Bendahara", "Perlengkapan", "PDD", "Pilar Ekonomi", "Pilar Jati Diri", "Pilar Kesehatan", "Pilar Lingkungan", "Pilar Pendidikan"
+        ];
+    }
+
+    public static function getProdi(): array
+    {
+        return [
+            "Bimbingan dan Konseling", "Bisnis Digital", "Manajemen", "Ilmu Hukum", "Informatika", "Pendidikan Ilmu Pengetahuan Alam",
+        ];
+    }
 }

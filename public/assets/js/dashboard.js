@@ -51,3 +51,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+// Image Preview
+const previewImage = document.getElementById('img');
+const inputImage = document.getElementById('input-img');
+
+try {
+    inputImage.onchange = (e) => {
+        if (inputImage.files && inputImage.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImage.src = e.target.result;
+            };
+            reader.readAsDataURL(inputImage.files[0]);
+        }
+    };
+} catch (error) {
+    console.log('Image preview not found!');
+}
+// Image Preview End

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('/')->middleware('auth')->group(function() {
     Route::resource('dashboard', DashboardController::class);
+    Route::resource('profile', ProfileController::class);
+    Route::delete('/profile/delete-avatar/{id}', [ProfileController::class, 'deleteAvatar'])->name('delete.avatar');
 });
 
 

@@ -9,12 +9,22 @@
 
     <div class="mt-4 menu-bar">
         <ul class="menu-links">
+            @if (Auth::user()->roles == 'admin')
+                <li>
+                    <a href="{{ route('dashboard.index') }}"
+                        class="side-link {{ $active === 'dashboard' ? 'active' : '' }}" data-bs-toggle="tooltip"
+                        data-bs-placement="right" data-bs-title="Dashboard">
+                        <i class='bx bxs-home icon'></i>
+                        <span class="px-0 mx-0 nav-text">Dashboard</span>
+                    </a>
+                </li>
+            @endif
             <li>
-                <a href="{{ route('dashboard.index') }}"
-                    class="side-link {{ $active === 'dashboard' ? 'active' : '' }}" data-bs-toggle="tooltip"
-                    data-bs-placement="right" data-bs-title="Dashboard">
-                    <i class='bx bxs-home icon'></i>
-                    <span class="px-0 mx-0 nav-text">Dashboard</span>
+                <a href="{{ route('profile.index') }}"
+                    class="side-link {{ $active === 'my profile' ? 'active' : '' }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="My Profile">
+                    <i class='bx bxs-user icon'></i>
+                    <span class="px-0 mx-0 nav-text">My Profile</span>
                 </a>
             </li>
             <li>
@@ -25,6 +35,24 @@
                     <span class="px-0 mx-0 nav-text">Articles</span>
                 </a>
             </li>
+            @if (Auth::user()->roles == 'admin')
+                <li>
+                    <a href="{{ route('users.index') }}"
+                        class="side-link {{ $active === 'users' ? 'active' : '' }}" data-bs-toggle="tooltip"
+                        data-bs-placement="right" data-bs-title="Users">
+                        <i class='bx bxs-group icon'></i>
+                        <span class="px-0 mx-0 nav-text">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="side-link {{ $active === 'contents' ? 'active' : '' }}" data-bs-toggle="tooltip"
+                        data-bs-placement="right" data-bs-title="Contents">
+                        <i class='bx bxs-layout icon'></i>
+                        <span class="px-0 mx-0 nav-text">Contents</span>
+                    </a>
+                </li>
+            @endif
         </ul>
     </div>
 </nav>

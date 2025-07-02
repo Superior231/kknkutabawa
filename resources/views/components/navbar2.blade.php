@@ -1,7 +1,7 @@
 <nav class="navbar">
     <div class="container-fluid">
         <div class="gap-3 navbar-brand d-flex align-items-center">
-            <i class='mt-1 bx bx-menu text-light d-md-none fs-1' type="button" data-bs-toggle="offcanvas"
+            <i class='mt-1 bx bx-menu text-light d-md-none fs-1' data-bs-toggle="offcanvas"
                 data-bs-target="#mobileNav" aria-controls="mobileNav"></i>
             <span class="py-0 my-0 text-light fw-semibold">{{ $navTitle }}</span>
         </div>
@@ -21,7 +21,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end position-absolute" aria-labelledby="navbarDropdownMenuLink">
                     <li>
-                        <a class="gap-2 dropdown-item d-flex align-items-center" href="#">
+                        <a class="gap-2 dropdown-item d-flex align-items-center" href="{{ route('profile.index') }}">
                             <i class='bx bx-user'></i>
                             Profile
                         </a>
@@ -61,12 +61,40 @@
     <hr class="py-0 my-0 border-light">
     <div class="px-0 mx-0 offcanvas-body">
         <ul class="list-unstyled">
-            <li class="{{ $active == 'dashboard' ? 'active' : '' }}">
-                <a href="{{ route('dashboard.index') }}" class="gap-2 d-flex align-items-center">
-                    <i class='bx bxs-home fs-4'></i>
-                    <span class="py-0 my-0">Dashboard</span>
+            @if (Auth::user()->roles == 'admin')
+                <li class="{{ $active == 'dashboard' ? 'active' : '' }}">
+                    <a href="{{ route('dashboard.index') }}" class="gap-2 d-flex align-items-center">
+                        <i class='bx bxs-home fs-4'></i>
+                        <span class="py-0 my-0">Dashboard</span>
+                    </a>
+                </li>
+            @endif
+            <li class="{{ $active == 'my profile' ? 'active' : '' }}">
+                <a href="{{ route('profile.index') }}" class="gap-2 d-flex align-items-center">
+                    <i class='bx bxs-user fs-4'></i>
+                    <span class="py-0 my-0">My Profile</span>
                 </a>
             </li>
+            <li class="{{ $active == 'articles' ? 'active' : '' }}">
+                <a href="#" class="gap-2 d-flex align-items-center">
+                    <i class='bx bxs-news fs-4'></i>
+                    <span class="py-0 my-0">Articles</span>
+                </a>
+            </li>
+            @if (Auth::user()->roles == 'admin')
+                <li class="{{ $active == 'users' ? 'active' : '' }}">
+                    <a href="#" class="gap-2 d-flex align-items-center">
+                        <i class='bx bxs-group fs-4'></i>
+                        <span class="py-0 my-0">Users</span>
+                    </a>
+                </li>
+                <li class="{{ $active == 'contents' ? 'active' : '' }}">
+                    <a href="#" class="gap-2 d-flex align-items-center">
+                        <i class='bx bxs-layout fs-4'></i>
+                        <span class="py-0 my-0">Contents</span>
+                    </a>
+                </li>
+            @endif
         </ul>
     </div>
 </div>
