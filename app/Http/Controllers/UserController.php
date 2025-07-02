@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -178,9 +179,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        // Hapus avatar jika ada
-        if ($user && $user->avatar) {
-            Storage::delete('public/avatars/' . $user->avatar);
+        if (!empty($user->avatar)) {
+            Storage::disk('public')->delete('avatars/' . $user->avatar);
         }
 
         $user->delete();
@@ -189,6 +189,28 @@ class UserController extends Controller
             return redirect()->route('user.index')->with('success', 'User berhasil dihapus!');
         } else {
             return redirect()->route('user.index')->with('error', 'User gagal dihapus!');
+        }
+    }
+
+    public function deleteAvatarUser($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return redirect()->route('user.index')->with('error', 'Pengguna tidak ditemukan!');
+        }
+
+        // Hapus file avatar jika ada
+        if (!empty($user->avatar)) {
+            Storage::disk('public')->delete('avatars/' . $user->avatar);
+            $user->avatar = null;
+        }
+
+        $user->save();
+
+        if ($user) {
+            return redirect()->route('user.index')->with('success', 'Avatar berhasil dihapus!');
+        } else {
+            return redirect()->route('user.index')->with('error', 'Avatar gagal dihapus!');
         }
     }
 }

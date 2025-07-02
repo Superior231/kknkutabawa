@@ -124,7 +124,7 @@ class ProfileController extends Controller
 
         // Hapus file avatar jika ada
         if (!empty($user->avatar)) {
-            Storage::delete('public/avatars/' . $user->avatar);
+            Storage::disk('public')->delete('avatars/' . $user->avatar);
             $user->avatar = null;
         }
 

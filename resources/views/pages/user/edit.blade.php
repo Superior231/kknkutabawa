@@ -34,10 +34,10 @@
                 <hr class="text-light">
                 <div class="gap-3 delete-assets d-flex align-items-center">
                     <form id="delete-avatar-form-{{ $user->id }}"
-                        action="{{ route('delete.avatar', $user->id) }}" method="POST">
+                        action="{{ route('delete.avatar.user', $user->id) }}" method="POST">
                         @csrf @method('DELETE')
                         <button class="btn btn-light fs-7" type="button"
-                            onclick="deleteAvatar({{ $user->id }})">Hapus Avatar</button>
+                            onclick="deleteAvatar({{ $user->id }})">Delete Avatar</button>
                     </form>
                 </div>
             </div>
@@ -241,7 +241,7 @@
                 title: 'Anda Yakin?',
                 text: 'Apakah Anda yakin ingin menghapus avatar ini?',
                 showCancelButton: true,
-                confirmButtonText: 'Hapus',
+                confirmButtonText: 'Delete',
                 customClass: {
                     popup: 'sw-popup',
                     title: 'sw-title',

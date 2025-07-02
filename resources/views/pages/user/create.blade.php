@@ -39,18 +39,16 @@
                         <div class="w-100">
                             <label for="roles">Role</label>
                             <select name="roles" id="roles" class="bg-transparent border-secondary text-light form-select" required>
-                                <option value="" class="text-color">Pilih Role</option>
-                                <option value="user" class="text-color" {{ old('roles') == 'user' ? 'selected' : '' }}>User</option>
-                                <option value="admin" class="text-color" {{ old('roles') == 'admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="user" class="text-color" selected>User</option>
+                                <option value="admin" class="text-color">Admin</option>
                             </select>
                         </div>
     
                         <div class="w-100">
                             <label for="status">Status</label>
                             <select name="status" id="status" class="bg-transparent border-secondary text-light form-select" required>
-                                <option value="" class="text-color">Pilih Status</option>
-                                <option value="approved" class="text-color" {{ old('status') == 'approved' ? 'selected' : '' }}>Approved</option>
-                                <option value="suspend" class="text-color" {{ old('status') == 'suspend' ? 'selected' : '' }}>Suspend</option>
+                                <option value="approved" class="text-color" selected>Approved</option>
+                                <option value="suspend" class="text-color">Suspend</option>
                             </select>
                         </div>
                     </div>

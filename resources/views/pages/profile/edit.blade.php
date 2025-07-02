@@ -39,7 +39,7 @@
                         action="{{ route('delete.avatar', Auth::user()->id) }}" method="POST">
                         @csrf @method('DELETE')
                         <button class="btn btn-light fs-7" type="button"
-                            onclick="deleteAvatar({{ Auth::user()->id }})">Hapus Avatar</button>
+                            onclick="deleteAvatar({{ Auth::user()->id }})">Delete Avatar</button>
                     </form>
                 </div>
             </div>
@@ -216,7 +216,7 @@
                 title: 'Anda Yakin?',
                 text: 'Apakah Anda yakin ingin menghapus avatar ini?',
                 showCancelButton: true,
-                confirmButtonText: 'Hapus',
+                confirmButtonText: 'Delete',
                 customClass: {
                     popup: 'sw-popup',
                     title: 'sw-title',
