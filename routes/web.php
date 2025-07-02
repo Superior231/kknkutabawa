@@ -22,5 +22,5 @@ Route::prefix('/')->middleware('auth')->group(function() {
 
 // Admin
 Route::prefix('/')->middleware(['auth', 'isAdmin'])->group(function() {
-    Route::resource('users', UserController::class);
+    Route::resource('user', UserController::class);
 });

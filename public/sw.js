@@ -1,6 +1,7 @@
 const cacheName = "cache-v1";
 const filesToCache = [
     "/",
+    "/offline.html",
     "/assets/img/*.png",
     "/assets/img/*.jpg",
     "/assets/css/style.css",

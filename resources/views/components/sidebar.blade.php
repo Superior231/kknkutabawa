@@ -37,7 +37,7 @@
             </li>
             @if (Auth::user()->roles == 'admin')
                 <li>
-                    <a href="{{ route('users.index') }}"
+                    <a href="{{ route('user.index') }}"
                         class="side-link {{ $active === 'users' ? 'active' : '' }}" data-bs-toggle="tooltip"
                         data-bs-placement="right" data-bs-title="Users">
                         <i class='bx bxs-group icon'></i>

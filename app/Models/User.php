@@ -67,7 +67,7 @@ class User extends Authenticatable
     public static function getProdi(): array
     {
         return [
-            "Bimbingan dan Konseling", "Bisnis Digital", "Manajemen", "Ilmu Hukum", "Informatika", "Pendidikan Ilmu Pengetahuan Alam",
+            "Bimbingan dan Konseling", "Bisnis Digital", "Manajemen", "Ilmu Hukum", "Informatika", "Pendidikan Ilmu Pengetahuan Alam", "Teknik Sipil"
         ];
     }
 }
