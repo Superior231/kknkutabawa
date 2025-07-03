@@ -1,9 +1,3 @@
-@php
-    use App\Models\Content;
-    $contents = Content::all();
-    $content = $contents->first();
-@endphp
-
 <nav class="p-3 sidebar d-none d-md-flex flex-column" style="width: 250px; min-height: 100vh;">
     <header class="d-flex align-items-center justify-content-between">
         <a href="{{ route('dashboard.index') }}" class="d-flex align-items-center text-decoration-none">
@@ -53,7 +47,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('content.edit', $content) }}"
+                    <a href="{{ route('content.index') }}"
                         class="side-link {{ $active === 'contents' ? 'active' : '' }}" data-bs-toggle="tooltip"
                         data-bs-placement="right" data-bs-title="Contents">
                         <i class='bx bxs-layout icon'></i>

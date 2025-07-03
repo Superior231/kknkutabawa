@@ -1,9 +1,3 @@
-@php
-    use App\Models\Content;
-    $contents = Content::all();
-    $content = $contents->first();
-@endphp
-
 <nav class="navbar">
     <div class="container-fluid">
         <div class="gap-3 navbar-brand d-flex align-items-center">
@@ -97,7 +91,7 @@
                     </a>
                 </li>
                 <li class="{{ $active == 'contents' ? 'active' : '' }}">
-                    <a href="{{ route('content.edit', $content) }}" class="gap-2 d-flex align-items-center">
+                    <a href="{{ route('content.index') }}" class="gap-2 d-flex align-items-center">
                         <i class='bx bxs-layout fs-4'></i>
                         <span class="py-0 my-0">Contents</span>
                     </a>

@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ContentController extends Controller
 {
-    public function edit($id)
+    public function index()
     {
-        $content = Content::where('id', $id)->firstOrFail();
+        $content = Content::where('id', 1)->firstOrFail();
         
         return view('pages.dashboard.content', [
             'title' => 'Contents - KKN Desa Kutabawa',
@@ -52,9 +52,9 @@ class ContentController extends Controller
         $content->save();
 
         if ($content) {
-            return redirect()->route('content.edit', $id)->with('success', 'Content berhasil diedit!');
+            return redirect()->route('content.index')->with('success', 'Content berhasil diedit!');
         } else {
-            return redirect()->route('content.edit', $id)->with('error', 'Content gagal diedit!');
+            return redirect()->route('content.index')->with('error', 'Content gagal diedit!');
         }
     }
 }
