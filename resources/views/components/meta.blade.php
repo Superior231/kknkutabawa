@@ -1,6 +1,6 @@
 @php
     $title = $title ?? 'KKN Desa Kutabawa';
-    $author_name = $author_name ?? 'Tim KKN Desa Kutabawa';
+    $author_name = 'Tim KKN Desa Kutabawa';
     $description = $description ?? "Temukan informasi lengkap tentang program kerja, dokumentasi kegiatan, dan kontribusi mahasiswa Universitas Pancasakti Tegal dalam membangun desa.";
     $keywords = $keywords ?? 'KKN, Desa Kutabawa, Universitas Pancasakti Tegal, Pengabdian Masyarakat, Program Kerja Mahasiswa';
 
@@ -42,3 +42,40 @@
 
 <link rel="canonical" href="{{ url()->current() }}">
 <link rel="alternate" href="{{ url()->current() }}" hreflang="x-default">
+
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "{{ $title }}",
+      "description": "{{ strip_tags($description) }}",
+      "url": "{{ url()->current() }}",
+      "inLanguage": "id",
+      "author": {
+        "@type": "Organization",
+        "name": "{{ $author_name }}",
+        "email": "contact@kknkutabawa.site"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "KKN Desa Kutabawa",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ $thumbnailUrl }}"
+        },
+        "email": "contact@kknkutabawa.site"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ $thumbnailUrl }}",
+        "width": 1200,
+        "height": 630
+      },
+      "keywords": "{{ $keywords }}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ url()->current() }}"
+      }
+    }
+</script>
