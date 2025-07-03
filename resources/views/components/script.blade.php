@@ -19,4 +19,35 @@
     }
 </script>
 
+<script>
+    window.onload = function () {
+        if (!localStorage.getItem('visited')) {
+            Swal.fire({
+                icon: 'info',
+                title: 'Information',
+                text: 'Situs ini dibuat sebagai dokumentasi pribadi kegiatan KKN Desa Kutabawa 2025 oleh mahasiswa Universitas Pancasakti Tegal. Logo Universitas dan logo Kampus Merdeka digunakan sebagai bagian dari identitas kegiatan dan bukan merupakan pengesahan institusi resmi.',
+                confirmButtonText: 'Mengerti',
+                showCancelButton: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false,
+                customClass: {
+                    popup: 'sw-popup',
+                    title: 'text-color',
+                    htmlContainer: 'sw-text',
+                    icon: 'sw-icon border-primary text-primary',
+                    closeButton: 'bg-secondary border-0 shadow-none',
+                    confirmButton: 'bg-primary border-0 shadow-none',
+                },
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Hanya simpan ke localStorage jika user klik OK
+                    localStorage.setItem('visited', 'true');
+                }
+            });
+        }
+    };
+</script>
+
 @stack('scripts')
