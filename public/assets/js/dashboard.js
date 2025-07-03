@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Image Preview
-const previewImage = document.getElementById('img');
-const inputImage = document.getElementById('input-img');
+const previewImage = document.getElementById('avatar-preview');
+const inputImage = document.getElementById('avatar');
 
 try {
     inputImage.onchange = (e) => {

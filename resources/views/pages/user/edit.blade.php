@@ -53,6 +53,15 @@
                 <div class="p-3 card-body p-lg-4">
                     <h5 class="card-title">Assets</h5>
                     <hr class="bg-secondary">
+                    <div class="user d-flex align-items-center justify-content-center">
+                        <div class="avatar" style="width: 100px; height: 100px;">
+                            @if ($user->avatar)
+                                <img src="{{ asset('storage/avatars/' . $user->avatar) }}" alt="avatar" id="avatar-preview">
+                            @else
+                                <img src="https://ui-avatars.com/api/?background=random&name={{ urlencode($user->fullname) }}" alt="avatar" id="avatar-preview">
+                            @endif
+                        </div>
+                    </div>
                     <div class="mb-3">
                         <label for="avatar">Avatar</label>
                         <input type="file" name="avatar" id="avatar" class="form-control"
