@@ -1,3 +1,9 @@
+@php
+    use App\Models\Content;
+    $contents = Content::all();
+    $content = $contents->first();
+@endphp
+
 <nav class="p-3 sidebar d-none d-md-flex flex-column" style="width: 250px; min-height: 100vh;">
     <header class="d-flex align-items-center justify-content-between">
         <a href="{{ route('dashboard.index') }}" class="d-flex align-items-center text-decoration-none">
@@ -7,7 +13,19 @@
         <i class='bx bx-chevron-left toggle text-light' id="sidebarToggle" style="cursor: pointer;"></i>
     </header>
 
-    <div class="mt-4 menu-bar">
+    <div class="mt-2 menu-bar">
+        <ul class="menu-links">
+            <li>
+                <a href="{{ route('home') }}"
+                    class="side-link {{ $active === 'home' ? 'active' : '' }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Halaman Utama">
+                    <i class='bx bx-arrow-back icon'></i>
+                    <span class="px-0 mx-0 nav-text">Halaman utama</span>
+                </a>
+            </li>
+            <hr class="py-0 my-0 border-secondary">
+        </ul>
+        
         <ul class="menu-links">
             <li>
                 <a href="{{ route('dashboard.index') }}"
@@ -20,17 +38,9 @@
             <li>
                 <a href="{{ route('profile.index') }}"
                     class="side-link {{ $active === 'my profile' ? 'active' : '' }}" data-bs-toggle="tooltip"
-                    data-bs-placement="right" data-bs-title="My Profile">
+                    data-bs-placement="right" data-bs-title="My profile">
                     <i class='bx bxs-user icon'></i>
-                    <span class="px-0 mx-0 nav-text">My Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="side-link {{ $active === 'articles' ? 'active' : '' }}" data-bs-toggle="tooltip"
-                    data-bs-placement="right" data-bs-title="Articles">
-                    <i class='bx bxs-news icon'></i>
-                    <span class="px-0 mx-0 nav-text">Articles</span>
+                    <span class="px-0 mx-0 nav-text">My profile</span>
                 </a>
             </li>
             @if (Auth::user()->roles == 'admin')
@@ -43,7 +53,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="{{ route('content.edit', $content) }}"
                         class="side-link {{ $active === 'contents' ? 'active' : '' }}" data-bs-toggle="tooltip"
                         data-bs-placement="right" data-bs-title="Contents">
                         <i class='bx bxs-layout icon'></i>
@@ -51,6 +61,14 @@
                     </a>
                 </li>
             @endif
+            <li>
+                <a href="#"
+                    class="side-link {{ $active === 'articles' ? 'active' : '' }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Articles">
+                    <i class='bx bxs-news icon'></i>
+                    <span class="px-0 mx-0 nav-text">Articles</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

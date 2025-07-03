@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -24,5 +25,6 @@ Route::prefix('/')->middleware('auth')->group(function() {
 // Admin
 Route::prefix('/')->middleware(['auth', 'isAdmin'])->group(function() {
     Route::resource('user', UserController::class);
+    Route::resource('content', ContentController::class);
     Route::delete('/user/delete-avatar/{id}', [UserController::class, 'deleteAvatarUser'])->name('delete.avatar.user');
 });

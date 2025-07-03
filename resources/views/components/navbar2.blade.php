@@ -1,3 +1,9 @@
+@php
+    use App\Models\Content;
+    $contents = Content::all();
+    $content = $contents->first();
+@endphp
+
 <nav class="navbar">
     <div class="container-fluid">
         <div class="gap-3 navbar-brand d-flex align-items-center">
@@ -59,7 +65,17 @@
             aria-label="Close"></button>
     </div>
     <hr class="py-0 my-0 border-light">
-    <div class="px-0 mx-0 offcanvas-body">
+    <div class="px-0 py-0 mx-0 offcanvas-body">
+        <ul class="list-unstyled">
+            <li class="{{ $active == 'home' ? 'active' : '' }}">
+                <a href="{{ route('home') }}" class="gap-2 d-flex align-items-center">
+                    <i class='bx bx-arrow-back fs-4'></i>
+                    <span class="py-0 my-0">Hamalan utama</span>
+                </a>
+            </li>
+            <hr class="py-0 my-0 border-secondary">
+        </ul>
+        
         <ul class="list-unstyled">
             <li class="{{ $active == 'dashboard' ? 'active' : '' }}">
                 <a href="{{ route('dashboard.index') }}" class="gap-2 d-flex align-items-center">
@@ -70,13 +86,7 @@
             <li class="{{ $active == 'my profile' ? 'active' : '' }}">
                 <a href="{{ route('profile.index') }}" class="gap-2 d-flex align-items-center">
                     <i class='bx bxs-user fs-4'></i>
-                    <span class="py-0 my-0">My Profile</span>
-                </a>
-            </li>
-            <li class="{{ $active == 'articles' ? 'active' : '' }}">
-                <a href="#" class="gap-2 d-flex align-items-center">
-                    <i class='bx bxs-news fs-4'></i>
-                    <span class="py-0 my-0">Articles</span>
+                    <span class="py-0 my-0">My profile</span>
                 </a>
             </li>
             @if (Auth::user()->roles == 'admin')
@@ -87,12 +97,18 @@
                     </a>
                 </li>
                 <li class="{{ $active == 'contents' ? 'active' : '' }}">
-                    <a href="#" class="gap-2 d-flex align-items-center">
+                    <a href="{{ route('content.edit', $content) }}" class="gap-2 d-flex align-items-center">
                         <i class='bx bxs-layout fs-4'></i>
                         <span class="py-0 my-0">Contents</span>
                     </a>
                 </li>
             @endif
+            <li class="{{ $active == 'articles' ? 'active' : '' }}">
+                <a href="#" class="gap-2 d-flex align-items-center">
+                    <i class='bx bxs-news fs-4'></i>
+                    <span class="py-0 my-0">Articles</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

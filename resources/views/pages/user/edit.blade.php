@@ -56,15 +56,15 @@
                     <div class="user d-flex align-items-center justify-content-center">
                         <div class="avatar" style="width: 100px; height: 100px;">
                             @if ($user->avatar)
-                                <img src="{{ asset('storage/avatars/' . $user->avatar) }}" alt="avatar" id="avatar-preview">
+                                <img src="{{ asset('storage/avatars/' . $user->avatar) }}" alt="avatar" id="image-preview">
                             @else
-                                <img src="https://ui-avatars.com/api/?background=random&name={{ urlencode($user->fullname) }}" alt="avatar" id="avatar-preview">
+                                <img src="https://ui-avatars.com/api/?background=random&name={{ urlencode($user->fullname) }}" alt="avatar" id="image-preview">
                             @endif
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="avatar">Avatar</label>
-                        <input type="file" name="avatar" id="avatar" class="form-control"
+                        <label for="image-input">Avatar</label>
+                        <input type="file" name="avatar" id="image-input" class="form-control"
                             accept=".jpg, .jpeg, .png, .webp">
                     </div>
                 </div>

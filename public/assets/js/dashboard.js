@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Image Preview
-const previewImage = document.getElementById('avatar-preview');
-const inputImage = document.getElementById('avatar');
+const previewImage = document.getElementById('image-preview');
+const inputImage = document.getElementById('image-input');
 
 try {
     inputImage.onchange = (e) => {
@@ -70,4 +70,3 @@ try {
 } catch (error) {
     console.log('Image preview not found!');
 }
-// Image Preview End

@@ -4,12 +4,16 @@
     @include('components.loading')
     @include('components.navbar')
     <section class="banner position-relative" id="home">
-        <img src="{{ url('assets/img/banner.jpg') }}" alt="Banner Image">
+        @if ($content->hero_image)
+            <img src="{{ asset('storage/thumbnails/' . $content->hero_image) }}" alt="hero image">
+        @else
+            <img src="{{ url('assets/img/banner.jpg') }}" alt="hero image">
+        @endif
         <div class="container banner-content d-flex flex-column">
             <div class="banner-text">
                 <h2><span class="px-3 auto-type fw-bold text-light bg-primary"></span></h2>
-                <h1 class="text-light fw-bold">KKN Desa Kutabawa Tahun 2025</h1>
-                <p class="text-light">Universitas Pancasakti Tegal</p>
+                <h1 class="text-light fw-bold">{{ $content->hero_title }}</h1>
+                <p class="text-light">{{ $content->hero_description }}</p>
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="banner-badge">
@@ -59,7 +63,7 @@
                                         </div>
                                         <div class="gap-1 d-flex flex-column justify-content-center align-items-start">
                                             <h6 class="py-0 my-0 text-nowrap">Total Penduduk</h6>
-                                            <h5 class="py-0 my-0 fw-bold">8.656 Jiwa</h5>
+                                            <h5 class="py-0 my-0 fw-bold">{{ number_format($content->profile_population, 0, ',', '.') }} Jiwa</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +78,7 @@
                                         </div>
                                         <div class="gap-1 d-flex flex-column justify-content-center align-items-start">
                                             <h6 class="py-0 my-0 text-nowrap">Profesi Utama</h6>
-                                            <h5 class="py-0 my-0 fw-bold">Petani</h5>
+                                            <h5 class="py-0 my-0 fw-bold">{{ $content->profile_profession }}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +93,7 @@
                                         </div>
                                         <div class="gap-1 d-flex flex-column justify-content-center align-items-start">
                                             <h6 class="py-0 my-0 text-nowrap">Luas Wilayah</h6>
-                                            <h5 class="py-0 my-0 fw-bold">762 Hektar</h5>
+                                            <h5 class="py-0 my-0 fw-bold">{{ rtrim(rtrim(number_format($content->profile_area, 1, ',', '.'), '0'), ',') }} Hektar</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +104,7 @@
                     <div class="mt-3 card border-secondary" id="profile-description">
                         <div class="p-4 card-body">
                             <span>
-                                Kutabawa adalah desa di kecamatan Karangreja, Purbalingga, Jawa Tengah, Indonesia. Di Kutabawa berlokasi pos awal pendakian ke Gunung Slamet (Pos Bambangan) dari sisi timur. Tempat ini populer di kalangan pendaki. Kutabawa dapat ditempuh dari terminal Purbalingga dengan menggunakan angkutan desa (Daihatsu minibus). Kutabawa adalah pusat STA, Perdangan Sayur Mayur terbesar di Jawa Tengah, STA kutabawa memasok sayuran seperti Cabe, Tomat, Kubis, Bawang, Sledri, Kentang, Ke berbagai kota seperti Jakarata, Cirebon, Ajibarang, Semarang, Yogyakarta, dan hampir di seluruh kota - kota di jawa.
+                                {!! $content->profile_description !!}
                             </span>
                         </div>
                     </div>
@@ -180,9 +184,9 @@
 @push('scripts')
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
-        function typeJs(strings) {
+        function typeJs(label) {
             var typed = new Typed('.auto-type', {
-                strings,
+                strings: label,
                 typeSpeed: 150,
                 backSpeed: 150,
                 loop: true,
@@ -194,6 +198,6 @@
                 contentType: 'html'
             });
         }
-        typeJs(["Kerjasama", "Kolaborasi", "Kreativitas"]);
+        typeJs({!! json_encode(explode(',', $content->label)) !!});
     </script>
 @endpush

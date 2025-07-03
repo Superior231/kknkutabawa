@@ -539,82 +539,101 @@ header .image-text .header-text {
 
 /* CKeditor */
 .editor-fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100svh;
-  background-color: #fff;
-  color: var(--text-color-dark);
-  padding: 1rem;
-  z-index: 9999;
-  overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100svh;
+    background-color: #fff;
+    color: var(--text-color-dark);
+    padding: 1rem;
+    z-index: 9999;
+    overflow: auto;
 }
 .editor-fullscreen .ck-editor__editable {
-  height: 80svh !important;
-  background-color: transparent !important;
+    height: 80svh !important;
+    background-color: transparent !important;
 }
 .ck-balloon-panel {
-  z-index: 99999 !important;
+    z-index: 99999 !important;
 }
 .ck-editor__editable {
-  min-height: 200px;
-  overflow-y: auto !important;
-  padding: 0px 63px 20px 63px !important;
+    min-height: 200px;
+    overflow-y: auto !important;
+    padding: 0px 63px 20px 63px !important;
 }
 @media (max-width: 768px) {
-  .ck-editor__editable {
-    padding: 10px !important;
-  }
+    .ck-editor__editable {
+        padding: 10px !important;
+    }
 }
 
 figure.image {
-  margin-left: auto;
+    margin-left: auto;
 	margin-right: auto;
 }
 figure.image img,
 p > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 figure.image.image-style-align-left,
 p > .image-style-align-left {
-  float: left;
-  margin-right: var(--ck-image-style-spacing);
+    float: left;
+    margin-right: var(--ck-image-style-spacing);
 }
 figure.image.image-style-align-right,
 p > .image-style-align-right {
-  float: right;
-  margin-left: var(--ck-image-style-spacing);
+    float: right;
+    margin-left: var(--ck-image-style-spacing);
 }
 
 figure.image.image-style-block-align-left {
-  margin-left: 0;
+    margin-left: 0;
 	margin-right: auto;
 }
 figure.image.image-style-block-align-right {
-  margin-right: 0;
-  margin-left: auto;
+    margin-right: 0;
+    margin-left: auto;
 }
 
 figure.table table {
-  all: revert;
-  border-collapse: collapse;
-  width: 100%;
+    all: revert;
+    border-collapse: collapse;
+    width: 100%;
 }
 
 pre {
-  background-color: #eeefef;
-  border: 1px solid var(--text-color);
-  padding: 20px;
-  border-radius: var(--border-5);
+    background-color: #eeefef;
+    border: 1px solid var(--text-color);
+    padding: 20px;
+    border-radius: var(--border-5);
 }
 label.language-code {
-  padding: 5px 15px;
-  position: absolute;
-  right: 0;
-  border-radius: 0px 5px 0px 0px;
+    padding: 5px 15px;
+    position: absolute;
+    right: 0;
+    border-radius: 0px 5px 0px 0px;
+}
+
+
+
+
+
+/* Content */
+.content .thumbnail-preview {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/6;
+    overflow: hidden;
+    border: 3px solid var(--body-color);
+}
+
+.content .thumbnail-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

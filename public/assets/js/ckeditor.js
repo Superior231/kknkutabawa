@@ -272,4 +272,4 @@ const editorConfig = {
 };
 
 ClassicEditor.create(document.querySelector('#description'), editorConfig);
-ClassicEditor.create(document.querySelector('#content'), editorConfig);
+ClassicEditor.create(document.querySelector('#profile_description'), editorConfig);
