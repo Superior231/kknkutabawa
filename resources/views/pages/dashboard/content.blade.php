@@ -57,8 +57,8 @@
 
                 <div class="mb-2">
                     <label for="hero_description">Hero description</label>
-                    <input type="text" name="hero_description" class="form-control @error('hero_description') is-invalid @enderror"
-                        id="hero_description" placeholder="Masukkan hero description" value="{{ $content->hero_description }}" required>
+                    <textarea name="hero_description" style="height: 100px;" class="form-control @error('hero_description') is-invalid @enderror"
+                        id="hero_description" placeholder="Masukkan hero description">{{ $content->hero_description }}</textarea>
                     @error('hero_description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
