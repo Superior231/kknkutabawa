@@ -25,7 +25,10 @@ class HomeController extends Controller
     public function show_profile($slug)
     {
         $users = User::all();
-        $user = $users->where('slug', $slug)->firstOrFail();
+        $user = $users->where('slug', $slug)->first();
+        if (!$user) {
+            abort(404);
+        }
 
         return view('pages.showProfile', [
             'title' => $user->fullname . ' (@' . $user->slug . ') - KKN Desa Kutabawa',
