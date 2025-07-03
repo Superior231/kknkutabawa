@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Content;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -12,13 +13,15 @@ class HomeController extends Controller
         $users = User::all();
         $contents = Content::all();
         $content = $contents->first();
+        $description = $description = Str::limit(strip_tags($content->hero_description), 150);;
 
         return view('pages.index', [
             'title' => 'KKN Desa Kutabawa 2025 | Universitas Pancasakti Tegal',
             'active' => 'home',
             'users' => $users,
             'contents' => $contents,
-            'content' => $content
+            'content' => $content,
+            'description' => $description
         ]);
     }
 
@@ -26,6 +29,7 @@ class HomeController extends Controller
     {
         $users = User::all();
         $user = $users->where('slug', $slug)->first();
+        $description = Str::limit(strip_tags($user->description), 150);
         if (!$user) {
             abort(404);
         }
@@ -35,7 +39,8 @@ class HomeController extends Controller
             'navTitle' => '',
             'active' => '',
             'users' => $users,
-            'user' => $user
+            'user' => $user,
+            'description' => $description
         ]);
     }
 }

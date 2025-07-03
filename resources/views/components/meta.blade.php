@@ -1,7 +1,7 @@
 @php
     $title = $title ?? 'KKN Desa Kutabawa';
     $author_name = $author_name ?? 'Tim KKN Desa Kutabawa';
-    $description = $description ?? "Temukan informasi lengkap tentang program kerja, dokumentasi kegiatan, dan kontribusi mahasiswa dalam membangun desa.";
+    $description = $description ?? "Temukan informasi lengkap tentang program kerja, dokumentasi kegiatan, dan kontribusi mahasiswa Universitas Pancasakti Tegal dalam membangun desa.";
     $keywords = $keywords ?? 'KKN, Desa Kutabawa, Universitas Pancasakti Tegal, Pengabdian Masyarakat, Program Kerja Mahasiswa';
 
     // Deteksi apakah ini halaman profil user (contoh: /@aprilla)
@@ -21,12 +21,12 @@
     }
 @endphp
 
-<meta name="description" content="{{ $description }}">
+<meta name="description" content="{{ strip_tags($description) }}">
 <meta name="keywords" content="{{ $keywords }}">
 <meta name="author" content="{{ $author_name }}">
 
 <meta property="og:title" content="{{ $title }}">
-<meta property="og:description" content="{{ $description }}">
+<meta property="og:description" content="{{ strip_tags($description) }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:image" content="{{ $thumbnailUrl }}">
@@ -34,7 +34,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title }}">
-<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:description" content="{{ strip_tags($description) }}">
 <meta name="twitter:image" content="{{ $thumbnailUrl }}">
 
 <meta name="robots" content="index, follow, max-image-preview:large">

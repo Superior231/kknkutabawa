@@ -13,7 +13,7 @@
             <div class="banner-text">
                 <h2><span class="px-3 auto-type fw-bold text-light bg-primary"></span></h2>
                 <h1 class="text-light fw-bold">{{ $content->hero_title }}</h1>
-                <p class="text-light">{{ $content->hero_description }}</p>
+                <p class="text-light-opacity col-10 col-md-10 col-lg-8">{{ $content->hero_description }}</p>
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="banner-badge">
@@ -177,6 +177,13 @@
                     <h6 class="py-0 my-0 text-nowrap">Belum ada anggota</h6>
                 @endforelse
             </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="projects">
+        <div class="container">
+            <h1 class="fw-bold blockquote">Projects</h1>
+            <h3 class="py-5 my-5 text-center fw-bold">COMING SOON!</h3>
         </div>
     </section>
 @endsection

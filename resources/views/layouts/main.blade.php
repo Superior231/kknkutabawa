@@ -12,6 +12,7 @@
     <div class="body">
         @yield('content')
     </div>
+    @include('components.footer')
     @include('components.script')
 </body>
 
