@@ -81,9 +81,17 @@
                         </div>
                         <div class="gap-1 card-body d-flex flex-column align-items-center justify-content-center">
                             <div class="qr-code">
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ urlencode(request()->getSchemeAndHttpHost() . '/@' . $user->slug) }}&size=100x100" alt="QR Code">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ urlencode(request()->getSchemeAndHttpHost() . '/@' . $user->slug) }}&size=100x100" alt="QR Code" id="qr-code" data-filename="{{ $user->slug }}">
                             </div>
                             <span class="text-center text-muted fs-7">{{ request()->getSchemeAndHttpHost() . '/@' . $user->slug }}</span>
+                            <div class="gap-2 d-grid d-md-flex justify-content-md-center w-100">
+                                <button class="gap-1 btn-primary d-flex align-items-center justify-content-center" id="download-qr-btn">
+                                    <i class='bx bxs-download'></i> QR Code
+                                </button>
+                                <button class="gap-1 btn-outline-primary d-flex align-items-center justify-content-center" id="copy-link">
+                                    <i class='bx bxs-copy'></i> Copy Link
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div class="mt-3 card">
@@ -119,3 +127,49 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        document.getElementById('download-qr-btn').addEventListener('click', function () {
+            const qrImage = document.getElementById('qr-code');
+            const imageUrl = qrImage.src;
+            const filename = qrImage.getAttribute('data-filename') || 'qr-code';
+        
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+        
+            img.crossOrigin = 'Anonymous'; // agar tidak kena CORS
+            img.onload = function () {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+        
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'qr-code-' + filename + '.png';
+                link.click();
+            };
+        
+            img.src = imageUrl;
+        });
+
+        document.getElementById('copy-link').addEventListener('click', function () {
+            const link = document.createElement('input');
+            link.value = '{{ request()->getSchemeAndHttpHost() . '/@' . $user->slug }}';
+            document.body.appendChild(link);
+            link.select();
+            document.execCommand('copy');
+            document.body.removeChild(link);
+
+            const icon = this.querySelector('i');
+            icon.classList.remove('bxs-copy');
+            icon.classList.add('bx-check');
+
+            setTimeout(function () {
+                icon.classList.remove('bx-check');
+                icon.classList.add('bxs-copy');
+            }, 3000);
+        });
+    </script>
+@endpush
