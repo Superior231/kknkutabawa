@@ -29,10 +29,11 @@ class HomeController extends Controller
     {
         $users = User::all();
         $user = $users->where('slug', $slug)->first();
-        $description = Str::limit(strip_tags($user->description), 150);
         if (!$user) {
             abort(404);
         }
+        
+        $description = Str::limit(strip_tags($user->description), 150);
 
         return view('pages.showProfile', [
             'title' => $user->fullname . ' (@' . $user->slug . ') - KKN Desa Kutabawa',
