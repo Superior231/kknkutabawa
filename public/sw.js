@@ -2,17 +2,19 @@ const cacheName = "cache-v1";
 const filesToCache = [
     "/",
     "/offline.html",
-    "/assets/img/*.png",
-    "/assets/img/*.jpg",
     "/assets/css/style.css",
+    "/assets/css/auth.css",
+    "/assets/css/dashboard.css",
     "/assets/js/script.js",
-    "/assets/images/no_connection.png",
+    "/assets/js/auth.js",
+    "/assets/js/dashboard.js",
+    "/assets/img/logo.png",
+    "/assets/img/banner-profile.png",
+    "/assets/img/banner-login.png",
+    "/assets/img/no_connection.png",
     "/assets/vendors/bootstrap/css/bootstrap.css",
     "/assets/vendors/bootstrap/js/bootstrap.bundle.min.js",
-    "/assets/vendors/boxicons/css/boxicons.min.css",
-    "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css",
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
-    "https://cdn.jsdelivr.net/npm/typed.js@2.0.12"
+    "/assets/vendors/boxicons/css/boxicons.min.css"
 ];
 
 // Preload cache saat service worker diinstal
