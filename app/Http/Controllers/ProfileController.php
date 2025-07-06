@@ -17,7 +17,7 @@ class ProfileController extends Controller
 
         return view('pages.profile.index', [
             'title' => 'My Profile - KKN Desa Kutabawa',
-            'navTitle' => 'My Profile',
+            'navTitle' => 'My profile',
             'active' => 'my profile',
             'user' => $user
         ]);
@@ -31,7 +31,7 @@ class ProfileController extends Controller
 
         return view('pages.profile.edit', [
             'title' => 'Edit Profile - KKN Desa Kutabawa',
-            'navTitle' => 'Edit Profile',
+            'navTitle' => 'Edit profile',
             'active' => 'edit profile',
             'user' => $user,
             'prodi' => $prodi,
