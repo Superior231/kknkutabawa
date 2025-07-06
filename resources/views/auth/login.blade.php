@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="row w-100" style="height: 100svh;">
-        <div class="col col-12 col-md-6 col-lg-7 d-flex flex-column justify-content-center" id="hero"></div>
+        <div class="px-0 mx-0 col col-12 col-md-6 col-lg-7 d-flex flex-column justify-content-center" id="hero">
+            <div class="d-flex align-items-end justify-content-center position-relative">
+                <img src="{{ url('assets/img/banner-login.png') }}" alt="hero-image" style="width: 100%;">
+            </div>
+        </div>
         <div class="col col-12 col-sm-12 col-md-6 col-lg-5 d-flex flex-column justify-content-center">
             <a href="{{ route('home') }}" class="p-3 text-center shadow position-absolute bg-light rounded-4 text-daecoration-none text-color d-flex align-items-center" style="top: 20px; right: 20px;">
                 <i class="fa-solid fa-house text-color"></i>
