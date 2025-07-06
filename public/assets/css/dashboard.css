@@ -49,7 +49,7 @@
     scroll-behavior: smooth;
 }
 body {
-    background-color: var(--body-color);
+    background-color: var(--bg-soft-blue);
 }
 
 a {

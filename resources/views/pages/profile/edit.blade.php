@@ -20,12 +20,12 @@
 @endpush
 
 @section('content')
-    <div class="container">
+    <div class="container px-0 px-md-3 px-lg-5">
         <div class="gap-2 mb-4 title d-flex align-items-center">
             <a href="{{ route('profile.index') }}" class="text-dark d-flex align-items-center" title="Back">
                 <i class='bx bx-arrow-back fs-2'></i>
             </a>
-            <h4 class="py-0 my-0 text-dark fw-bold">Edit Profile</h4>
+            <h4 class="py-0 my-0 text-dark fw-bold">{{ $navTitle }}</h4>
         </div>
 
         <!-- Danger Zone -->
