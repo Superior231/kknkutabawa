@@ -12,7 +12,7 @@
             <li>
                 <a href="{{ route('home') }}"
                     class="side-link {{ $active === 'home' ? 'active' : '' }}" data-bs-toggle="tooltip"
-                    data-bs-placement="right" data-bs-title="Halaman Utama">
+                    data-bs-placement="right" data-bs-title="Halaman utama">
                     <i class='bx bx-arrow-back icon'></i>
                     <span class="px-0 mx-0 nav-text">Halaman utama</span>
                 </a>

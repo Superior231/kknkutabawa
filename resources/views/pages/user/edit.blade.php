@@ -31,7 +31,7 @@
         <!-- Danger Zone -->
         <div class="mb-3 card bg-danger">
             <div class="p-3 card-body p-lg-4">
-                <h6 class="card-title text-light">Danger Zone</h6>
+                <h5 class="card-title text-light">Danger Zone</h5>
                 <hr class="text-light">
                 <div class="gap-3 delete-assets d-flex align-items-center">
                     <form id="delete-avatar-form-{{ $user->id }}"
