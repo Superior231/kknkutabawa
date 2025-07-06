@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="{{ url('assets/img/logo.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ url('assets/img/logo.png') }}" type="image/png">
 <link rel="stylesheet" href="{{ url('assets/vendors/bootstrap/css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ url('assets/vendors/boxicons/css/boxicons.min.css') }}">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
