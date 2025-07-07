@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-    {{-- @include('components.loading') --}}
+    @include('components.loading')
     @include('components.navbar')
     <section class="banner position-relative" id="home">
         @if ($content->hero_image)
