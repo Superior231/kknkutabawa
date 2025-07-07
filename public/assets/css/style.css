@@ -358,6 +358,10 @@ a {
 
 
 /* Profile */
+#profile {
+    background-color: var(--bg-soft-blue) !important;
+    padding-bottom: 20px;
+}
 #profile .card.card-profile,
 #profile #other-members .card {
     background-color: var(--card-color);
