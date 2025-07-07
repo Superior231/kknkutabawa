@@ -1,6 +1,6 @@
 @php
     $title = $title ?? 'KKN Desa Kutabawa';
-    $author_name = 'Tim KKN Desa Kutabawa';
+    $author_name = $author_name ?? 'Tim KKN Desa Kutabawa';
     $description = $description ?? "Temukan informasi lengkap tentang program kerja, dokumentasi kegiatan, dan kontribusi mahasiswa Universitas Pancasakti Tegal dalam membangun desa.";
     $keywords = $keywords ?? 'KKN, Desa Kutabawa, Universitas Pancasakti Tegal, Pengabdian Masyarakat, Program Kerja Mahasiswa';
 
