@@ -76,6 +76,9 @@ const editorConfig = {
         ],
         shouldNotGroupWhenFull: false,
     },
+    mediaEmbed: {
+        previewsInData: true
+    },
     plugins: [
         AccessibilityHelp,
         Autoformat,

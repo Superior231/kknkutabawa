@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
+@push('styles')
+    @livewireStyles()
+@endpush
+
 @section('content')
-    @include('components.loading')
+    {{-- @include('components.loading') --}}
     @include('components.navbar')
     <section class="banner position-relative" id="home">
         @if ($content->hero_image)
@@ -183,12 +187,13 @@
     <section class="py-5" id="projects">
         <div class="container">
             <h1 class="fw-bold blockquote">Projects</h1>
-            <h3 class="py-5 my-5 text-center fw-bold">COMING SOON!</h3>
+            @livewire('project')
         </div>
     </section>
 @endsection
 
 @push('scripts')
+    @livewireScripts()
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
         function typeJs(label) {

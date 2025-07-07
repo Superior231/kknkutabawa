@@ -97,10 +97,10 @@
                     </a>
                 </li>
             @endif
-            <li class="{{ $active == 'articles' ? 'active' : '' }}">
-                <a href="#" class="gap-2 d-flex align-items-center">
+            <li class="{{ $active == 'projects' ? 'active' : '' }}">
+                <a href="{{ route('project.index') }}" class="gap-2 d-flex align-items-center">
                     <i class='bx bxs-news fs-4'></i>
-                    <span class="py-0 my-0">Articles</span>
+                    <span class="py-0 my-0">Projects</span>
                 </a>
             </li>
         </ul>

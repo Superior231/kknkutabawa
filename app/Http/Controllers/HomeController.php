@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ReadTimeHelper;
 use App\Models\Content;
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Support\Str;
 
@@ -42,6 +44,28 @@ class HomeController extends Controller
             'users' => $users,
             'user' => $user,
             'description' => $description
+        ]);
+    }
+
+    public function show_project($slug)
+    {
+        $project = Project::where('slug', $slug)->firstOrFail();
+        $author = $project->user;
+        $author_name = $author->fullname;
+        $description = Str::limit(strip_tags($project->description), 150);
+        $thumbnail = $project->thumbnail;
+        $readTime = ReadTimeHelper::estimate($project->description);
+
+        return view('pages.showProject', [
+            'title' => $project->title,
+            'active' => 'home',
+            'project' => $project,
+            'author' => $author,
+            'author_name' => $author_name,
+            'description' => $description,
+            'keywords' => $project->category,
+            'thumbnail' => $thumbnail,
+            'readTime' => $readTime
         ]);
     }
 }

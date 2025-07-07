@@ -71,4 +71,9 @@ class User extends Authenticatable
             "Bimbingan dan Konseling", "Bisnis Digital", "Manajemen", "Ilmu Hukum", "Informatika", "Pendidikan Ilmu Pengetahuan Alam", "Teknik Sipil"
         ];
     }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

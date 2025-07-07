@@ -56,11 +56,11 @@
                 </li>
             @endif
             <li>
-                <a href="#"
-                    class="side-link {{ $active === 'articles' ? 'active' : '' }}" data-bs-toggle="tooltip"
-                    data-bs-placement="right" data-bs-title="Articles">
+                <a href="{{ route('project.index') }}"
+                    class="side-link {{ $active === 'projects' ? 'active' : '' }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Projects">
                     <i class='bx bxs-news icon'></i>
-                    <span class="px-0 mx-0 nav-text">Articles</span>
+                    <span class="px-0 mx-0 nav-text">Projects</span>
                 </a>
             </li>
         </ul>
