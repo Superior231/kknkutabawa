@@ -9,7 +9,7 @@
         </a>
         <ul class="links" id="navbarNav1">
             <li>
-                <a class="px-0 nav-link active" href="{{ request()->url() === url('/') ? '#home' : route('home') . '#home' }}">Home</a>
+                <a class="px-0 nav-link" href="{{ request()->url() === url('/') ? '#home' : route('home') . '#home' }}">Home</a>
             </li>
             <li>
                 <a class="px-0 nav-link" href="{{ request()->url() === url('/') ? '#profil-desa' : route('home') . '#profil-desa' }}">Profil Desa</a>
@@ -43,7 +43,7 @@
             <div class="pt-0 mt-0 offcanvas-body">
                 <ul class="d-flex flex-column align-items-start justify-content-start">
                     <li>
-                        <a class="px-0 py-0 nav-link active" href="{{ request()->url() === url('/') ? '#home' : route('home') . '#home' }}">Home</a>
+                        <a class="px-0 py-0 nav-link" href="{{ request()->url() === url('/') ? '#home' : route('home') . '#home' }}">Home</a>
                     </li>
                     <li>
                         <a class="px-0 py-0 nav-link" href="{{ request()->url() === url('/') ? '#profil-desa' : route('home') . '#profil-desa' }}">Profil Desa</a>
