@@ -16,7 +16,7 @@ Auth::routes(['register' => false]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/@{slug}', [HomeController::class, 'show_profile'])->name('show.profile');
-Route::get('/project/{slug}', [HomeController::class, 'show_project'])->name('show.project');
+Route::get('/detail/{slug}', [HomeController::class, 'show_project'])->name('show.project');
 
 Route::prefix('/')->middleware('auth')->group(function() {
     Route::resource('dashboard', DashboardController::class);

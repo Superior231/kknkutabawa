@@ -58,20 +58,20 @@
             
             <div class="gap-2 actions d-flex align-items-center justify-content-between">
                 <div class="share">
-                    <button onclick="shareToFacebook('{{ url('/project/' . $project->slug) }}')" class="facebook" title="Share to Facebook">
+                    <button onclick="shareToFacebook('{{ url('/detail/' . $project->slug) }}')" class="facebook" title="Share to Facebook">
                         <i class="fa-brands fa-facebook-f"></i>
                     </button>
-                    <button onclick="shareToX('{{ url('/project/' . $project->slug) }}', '{{ $project->title }}')" class="x" title="Share to X">
+                    <button onclick="shareToX('{{ url('/detail/' . $project->slug) }}', '{{ $project->title }}')" class="x" title="Share to X">
                         <i class="fa-brands fa-x-twitter"></i>
                     </button>
-                    <button onclick="shareToEmail('{{ url('/project/' . $project->slug) }}', '{{ $project->title }}')" class="email" title="Share to Email">
+                    <button onclick="shareToEmail('{{ url('/detail/' . $project->slug) }}', '{{ $project->title }}')" class="email" title="Share to Email">
                         <i class="fa-solid fa-envelope"></i>
                     </button>
                     <button onclick="copyLink('{{ $project->id }}')" class="copy-link-btn" id="copy-link-btn-{{ $project->id }}" title="Copy Link">
                         <p class="p-0 m-0 copy-link-text fs-7" id="copy-link-text-{{ $project->id }}">
                             <i class="fa-solid fa-copy"></i>
                         </p>
-                        <input type="text" id="copy-link-{{ $project->id }}" value="{{ url('/project/' . $project->slug) }}" hidden>
+                        <input type="text" id="copy-link-{{ $project->id }}" value="{{ url('/detail/' . $project->slug) }}" hidden>
                     </button>
                 </div>
             </div>
