@@ -11,7 +11,7 @@
 
 @section('content')
     <section id="project">
-        @if (Auth::user()->roles = 'admin')
+        @if (Auth::user()->roles == 'admin')
             <div class="p-4 mb-3 card">
                 <div class="actions d-flex justify-content-between align-items-center">
                     <h4 class="py-0 my-0 fw-semibold">Semua Kategori</h4>
