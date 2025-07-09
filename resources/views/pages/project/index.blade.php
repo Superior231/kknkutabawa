@@ -80,6 +80,7 @@
                     <tr>
                         <th class="text-center">No</th>
                         <th>Judul</th>
+                        <th>Kategori</th>
                         <th>Updated_at</th>
                         <th>Created_at</th>
                         <th class="text-center">Actions</th>
@@ -92,6 +93,36 @@
                             <td>
                                 <div class="title" style="min-width: 250px;">
                                     {{ $project->title }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-0 category text-color fs-7">
+                                    @foreach (explode(', ', $project->category) as $category)
+                                        @php
+                                            $category = trim($category); // remove leading/trailing spaces
+                                            $badgeClass = match ($category) {
+                                                'Ekonomi' => 'bg-ekonomi',
+                                                'Jati Diri' => 'bg-jatidiri',
+                                                'Kesehatan' => 'bg-kesehatan',
+                                                'Lingkungan' => 'bg-lingkungan',
+                                                'Pendidikan' => 'bg-pendidikan',
+                                                default => 'bg-default',
+                                            };
+                                    
+                                            $iconClass = match ($category) {
+                                                'Ekonomi' => 'fa-dollar-sign',
+                                                'Jati Diri' => 'fa-people-group',
+                                                'Kesehatan' => 'fa-heart-pulse',
+                                                'Lingkungan' => 'fa-leaf',
+                                                'Pendidikan' => 'fa-graduation-cap',
+                                                default => 'fa-circle-question',
+                                            };
+                                        @endphp
+                                        
+                                        <p class="badge {{ $badgeClass }}">
+                                            <i class="fa-solid {{ $iconClass }}"></i> {{ $category }}
+                                        </p>
+                                    @endforeach
                                 </div>
                             </td>
                             <td>{{ Carbon\Carbon::parse($project->updated_at)->translatedFormat('d F Y, H:i') }} WIB</td>
