@@ -59,7 +59,7 @@
                 @endforeach
             </div>
             <hr class="bg-secondary">
-            <div class="gap-2 author d-flex">
+            <div class="gap-0 author d-flex">
                 <a href="{{ route('show.profile', ['slug' => $author->slug]) }}" class="avatar" style="width: 40px; height: 40px;">
                     @if (!empty($project->user->avatar))
                         <img class="img" src="{{ asset('storage/avatars/' . $project->user->avatar) }}">
