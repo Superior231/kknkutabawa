@@ -15,7 +15,7 @@
         @endif
         <div class="container banner-content d-flex flex-column">
             <div class="banner-text">
-                <h2><span class="px-3 auto-type fw-bold text-light bg-primary"></span></h2>
+                <h2><span class="px-3 auto-type fw-bold text-warning bg-primary"></span></h2>
                 <h1 class="text-light fw-bold">{{ $content->hero_title }}</h1>
                 <p class="text-light-opacity col-10 col-md-10 col-lg-8">{{ $content->hero_description }}</p>
             </div>
