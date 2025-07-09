@@ -71,10 +71,10 @@ const editorConfig = {
             'undo', 'redo', '|',
             'heading', 'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
             'bold', 'italic', 'underline', 'blockQuote', 'subscript', 'superscript', 'specialCharacters', '|',
-            'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent', '|',
-            'alignment', '|',
-            'link', 'insertImage', 'MediaEmbed', 'insertTable', 'codeBlock', 'htmlEmbed', '|',
-            'removeFormat'
+            'outdent', 'indent', 'alignment', '|',
+            'bulletedList', 'numberedList', 'todoList', '|',
+            'link', '|',
+            'insertImage', 'MediaEmbed', 'insertTable', 'codeBlock', 'htmlEmbed', '|'
         ],
         shouldNotGroupWhenFull: false,
     },
@@ -150,7 +150,7 @@ const editorConfig = {
         'bold', 'italic', 'underline', 'blockQuote', '|',
         'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
         'link', '|',
-        'bulletedList', 'numberedList', 'todoList', '|'
+        'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent', 'alignment', '|'
     ],
     heading: {
         options: [
