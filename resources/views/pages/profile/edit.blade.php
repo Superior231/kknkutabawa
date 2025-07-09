@@ -78,7 +78,7 @@
                     <div class="mb-2">
                         <label for="name">Username</label>
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                            id="name" placeholder="Masukkan username" value="{{ Auth::user()->name }}" required>
+                            id="name" placeholder="Masukkan username" value="{{ Auth::user()->name }}" disabled required>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
