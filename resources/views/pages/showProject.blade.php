@@ -101,14 +101,14 @@
                         <input type="text" id="copy-link-{{ $project->id }}" value="{{ url('/detail/' . $project->slug) }}" hidden>
                     </button>
                 </div>
-            </div>
 
-            <div class="mt-4 read-time d-flex align-items-center justify-content-end text-secondary">
-                <div class="gap-1 px-4 py-2 d-flex align-items-center justify-content-center bg-primary text-light rounded-pill">
-                    <i class='bx bx-stopwatch fs-5'></i>
-                    <p class="py-0 my-0 fs-7">
-                        {{ $readTime }}
-                    </p>
+                <div class="read-time d-flex align-items-center justify-content-end text-secondary">
+                    <div class="gap-1 px-4 py-2 d-flex align-items-center justify-content-center bg-primary text-light rounded-pill fs-7">
+                        <i class='bx bx-stopwatch fs-6'></i>
+                        <p class="py-0 my-0">
+                            {{ $readTime }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
