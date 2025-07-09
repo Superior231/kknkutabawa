@@ -16,7 +16,7 @@
                 <div class="flex-wrap gap-2 jobs d-flex align-items-center">
                     @if (Auth::user()->jobs)
                         @foreach (explode(',', Auth::user()->jobs) as $job)
-                            <div class="px-3 py-2 badge bg-primary text-light">
+                            <div class="px-3 py-2 badge bg-primary text-warning">
                                 <span>{{ $job }}</span>
                             </div>
                         @endforeach
