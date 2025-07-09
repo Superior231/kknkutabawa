@@ -1,4 +1,7 @@
 <div>
+    @php
+        
+    @endphp
     <div class="gap-2 actions d-flex justify-content-between">
         <!-- Filters -->
         <div class="gap-2 container-filters d-flex position-relative">
@@ -37,9 +40,31 @@
     </div>
 
     <div class="mt-2 category">
-        @foreach ($sortedCategoryFilters  as $filter)
-            <span class="badge bg-primary">{{ $filter }}</span>
-        @endforeach
+        @foreach ($sortedCategoryFilters as $filter)
+            @php
+                $category = trim($filter); // ✅ Perbaikan di sini
+                $badgeClass = match ($category) {
+                    'Ekonomi' => 'bg-ekonomi',
+                    'Jati Diri' => 'bg-jatidiri',
+                    'Kesehatan' => 'bg-kesehatan',
+                    'Lingkungan' => 'bg-lingkungan',
+                    'Pendidikan' => 'bg-pendidikan',
+                    default => 'bg-default',
+                };
+        
+                $iconClass = match ($category) {
+                    'Ekonomi' => 'fa-dollar-sign',
+                    'Jati Diri' => 'fa-people-group',
+                    'Kesehatan' => 'fa-heart-pulse',
+                    'Lingkungan' => 'fa-leaf',
+                    'Pendidikan' => 'fa-graduation-cap',
+                    default => 'fa-circle-question',
+                };
+            @endphp
+            <p class="badge {{ $badgeClass }}">
+                <i class="fa-solid {{ $iconClass }}"></i> {{ $category }}
+            </p>
+        @endforeach    
     </div>
 
     <div class="pt-0 mt-0 mb-5 row g-3 g-md-4 mt-lg-2">
@@ -50,10 +75,33 @@
                         <div class="thumbnail">
                             <img src="{{ url('storage/thumbnails/' . $item->thumbnail) }}" alt="thumbnail" class="mb-3" style="width: 100%">
                         </div>
-                        <div class="gap-2 mt-2 mb-3 category">
+                        <div class="mt-2 mb-3 category fs-7">
                             @foreach (explode(',', $item->category) as $categories)
-                                <p class="p-1 m-0 badge text-primary">{{ $categories }}</p>
-                            @endforeach
+                                @php
+                                    $category = trim($categories); // remove leading/trailing spaces
+                                    $badgeClass = match ($category) {
+                                        'Ekonomi' => 'bg-ekonomi',
+                                        'Jati Diri' => 'bg-jatidiri',
+                                        'Kesehatan' => 'bg-kesehatan',
+                                        'Lingkungan' => 'bg-lingkungan',
+                                        'Pendidikan' => 'bg-pendidikan',
+                                        default => 'bg-default',
+                                    };
+                            
+                                    $iconClass = match ($category) {
+                                        'Ekonomi' => 'fa-dollar-sign',
+                                        'Jati Diri' => 'fa-people-group',
+                                        'Kesehatan' => 'fa-heart-pulse',
+                                        'Lingkungan' => 'fa-leaf',
+                                        'Pendidikan' => 'fa-graduation-cap',
+                                        default => 'fa-circle-question',
+                                    };
+                                @endphp
+                            
+                                <p class="badge {{ $badgeClass }}">
+                                    <i class="fa-solid {{ $iconClass }}"></i> {{ $category }}
+                                </p>
+                            @endforeach                        
                         </div>
                         <h4 class="mb-3 project-title">{{ $item->title }}</h4>
                     </a>

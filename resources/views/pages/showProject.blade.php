@@ -30,7 +30,34 @@
             <h1 class="text-dark fw-bold">
                 {{ $project->title }}
             </h1>
-            <p class="mb-0 text-secondary fs-7">Kategori : {{ str_replace(',', ', ', $project->category) }}</p>
+            <div class="mb-0 category text-color fs-7">Kategori : 
+                @foreach (explode(', ', $project->category) as $category)
+                    @php
+                        $category = trim($category); // remove leading/trailing spaces
+                        $badgeClass = match ($category) {
+                            'Ekonomi' => 'bg-ekonomi',
+                            'Jati Diri' => 'bg-jatidiri',
+                            'Kesehatan' => 'bg-kesehatan',
+                            'Lingkungan' => 'bg-lingkungan',
+                            'Pendidikan' => 'bg-pendidikan',
+                            default => 'bg-default',
+                        };
+                
+                        $iconClass = match ($category) {
+                            'Ekonomi' => 'fa-dollar-sign',
+                            'Jati Diri' => 'fa-people-group',
+                            'Kesehatan' => 'fa-heart-pulse',
+                            'Lingkungan' => 'fa-leaf',
+                            'Pendidikan' => 'fa-graduation-cap',
+                            default => 'fa-circle-question',
+                        };
+                    @endphp
+                    
+                    <p class="badge {{ $badgeClass }}">
+                        <i class="fa-solid {{ $iconClass }}"></i> {{ $category }}
+                    </p>
+                @endforeach
+            </div>
             <hr class="bg-secondary">
             <div class="gap-2 author d-flex">
                 <a href="{{ route('show.profile', ['slug' => $author->slug]) }}" class="avatar" style="width: 40px; height: 40px;">

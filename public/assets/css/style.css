@@ -17,10 +17,25 @@
 
     --bg-blue: #0d6ffc;
     --bg-soft-blue: #f1f5fb;
-    --bg-success: #188754;
+    --bg-red: #dc3545;
     --bg-warning: #ffc106;
+    --bg-success: #188754;
+    --bg-green: var(--bg-success);
+    --bg-indigo: #6610f2;
     --bg-success-opacity: rgba(0, 128, 0, 0.1);
     --bg-warning-opacity: rgba(255, 215, 0, 0.18);
+
+    --bg-red-badge-opacity: #f1aeb5;
+    --bg-warning-badge-opacity: #ffe69c;
+    --bg-green-badge-opacity: #a5cfba;
+    --bg-blue-badge-opacity: #9fc4fe;
+    --bg-indigo-badge-opacity: #c39ffa;
+
+    --color-red-badge-opacity: #2b0a0f;
+    --color-warning-badge-opacity: #322700;
+    --color-green-badge-opacity: #051a11;
+    --color-blue-badge-opacity: #021734;
+    --color-indigo-badge-opacity: #140330;
     
     /* Transisi */
     --tran-02: all 0.2s ease;
@@ -622,6 +637,44 @@ section.thumbnail img {
     background-size: cover;
     object-fit: cover;
     background-position: center;
+}
+
+/* Category */
+.badge {
+    padding: 6px 10px;
+    margin-bottom: 3px;
+    border-radius: var(--radius-50);
+    border-left: 4px solid;
+}
+.badge.bg-ekonomi {
+    background-color: var(--bg-warning-badge-opacity);
+    color: var(--color-warning-badge-opacity) !important;
+    border-color: var(--bg-warning) !important;
+}
+.badge.bg-jatidiri {
+    background-color: var(--bg-indigo-badge-opacity);
+    color: var(--color-indigo-badge-opacity) !important;
+    border-color: var(--bg-indigo) !important;
+}
+.badge.bg-kesehatan {
+    background-color: var(--bg-red-badge-opacity);
+    color: var(--color-red-badge-opacity) !important;
+    border-color: var(--bg-red) !important;
+}
+.badge.bg-lingkungan {
+    background-color: var(--bg-green-badge-opacity);
+    color: var(--color-green-badge-opacity) !important;
+    border-color: var(--bg-green) !important;
+}
+.badge.bg-pendidikan {
+    background-color: var(--bg-blue-badge-opacity);
+    color: var(--color-blue-badge-opacity) !important;
+    border-color: var(--bg-blue) !important;
+}
+.badge.bg-default {
+    background-color: var(--primary-color);
+    color: var(--text-light) !important;
+    border-color: var(--primary-color) !important;
 }
 
 /* view details */
