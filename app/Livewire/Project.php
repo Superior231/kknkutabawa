@@ -5,11 +5,12 @@ namespace App\Livewire;
 use App\Models\Category;
 use App\Models\Project as ModelsProject;
 use Livewire\Component;
+use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 
 class Project extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
     protected $paginationTheme = 'bootstrap';
     public $numberOfPaginatorsRendered = [];
     public $search = '';

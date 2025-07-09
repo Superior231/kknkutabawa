@@ -803,3 +803,36 @@ footer a:hover {
     color: var(--text-color);
     border-bottom: 2px solid var(--primary-color);
 }
+
+
+
+/* Pagination */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagination-container nav ul li a,
+.pagination-container nav ul li button {
+    background-color: transparent;
+    border: 1px solid var(--text-color-muted);
+    color: var(--text-color);
+}
+.pagination-container nav ul li:hover button,
+.pagination-container nav ul li:focus-within button {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--text-light-opacity);
+    box-shadow: none;
+}
+.pagination-container nav ul li.disabled span {
+    background-color: transparent !important;
+    border-color: var(--text-color-muted) !important;
+    color: var(--text-color-muted) !important;
+}
+.pagination-container nav ul li.active span {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--text-light) !important;
+}
