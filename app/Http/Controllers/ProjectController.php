@@ -81,17 +81,24 @@ class ProjectController extends Controller
         $project = Project::where('slug', $slug)->first();
         $categories = Category::orderBy('name', 'asc')->get();
 
-        if (Auth::user()->roles == 'admin' || Auth::user()->id == $project->user_id) {
-            return view('pages.project.edit', [
-                'title' => 'Edit Project - KKN Desa Kutabawa',
-                'navTitle' => 'Edit project',
-                'active' => 'projects',
-                'project' => $project,
-                'categories' => $categories
-            ]);
-        } else {
-            return redirect()->route('project.index')->with('error', 'Anda tidak memiliki akses untuk mengedit project ini!');
-        }
+        // if (Auth::user()->roles == 'admin' || Auth::user()->id == $project->user_id) {
+        //     return view('pages.project.edit', [
+        //         'title' => 'Edit Project - KKN Desa Kutabawa',
+        //         'navTitle' => 'Edit project',
+        //         'active' => 'projects',
+        //         'project' => $project,
+        //         'categories' => $categories
+        //     ]);
+        // } else {
+        //     return redirect()->route('project.index')->with('error', 'Anda tidak memiliki akses untuk mengedit project ini!');
+        // }
+        return view('pages.project.edit', [
+            'title' => 'Edit Project - KKN Desa Kutabawa',
+            'navTitle' => 'Edit project',
+            'active' => 'projects',
+            'project' => $project,
+            'categories' => $categories
+        ]);
     }
 
     public function update(Request $request, string $id)
@@ -118,9 +125,9 @@ class ProjectController extends Controller
         $project = Project::find($id);
 
         // Cek apakah pengguna yang terautentikasi adalah pemilik dari data yang ingin diperbarui
-        if (Auth::id() !== (int) $project->user_id && Auth::user()->roles !== 'admin') {
-            return redirect()->route('project.index')->with('error', 'Oops... Terjadi kesalahan!');
-        }
+        // if (Auth::id() !== (int) $project->user_id && Auth::user()->roles !== 'admin') {
+        //     return redirect()->route('project.index')->with('error', 'Oops... Terjadi kesalahan!');
+        // }
 
         $project->category = $request->input('category', $project->category);
         $project->title = $request->input('title', $project->title);
