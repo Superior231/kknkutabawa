@@ -76,4 +76,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
+
+    public function budgets()
+    {
+        return $this->hasMany(Budget::class);
+    }
 }

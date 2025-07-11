@@ -103,6 +103,12 @@
                     <span class="py-0 my-0">Projects</span>
                 </a>
             </li>
+            <li class="{{ $active == 'budget' ? 'active' : '' }}">
+                <a href="{{ route('budget.index') }}" class="gap-2 d-flex align-items-center">
+                    <i class='bx bxs-dollar-circle fs-4'></i>
+                    <span class="py-0 my-0">Anggaran</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

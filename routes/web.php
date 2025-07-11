@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
@@ -24,6 +25,9 @@ Route::prefix('/')->middleware('auth')->group(function() {
     Route::delete('/profile/delete-avatar/{id}', [ProfileController::class, 'deleteAvatar'])->name('delete.avatar');
 
     Route::resource('project', ProjectController::class);
+    Route::resource('budget', BudgetController::class);
+    Route::get('/budget-in', [BudgetController::class, 'create_budget_in'])->name('budgetIn.create');
+    Route::get('/budget-in/{id}/edit', [BudgetController::class, 'edit_budget_in'])->name('budgetIn.edit');
 });
 
 

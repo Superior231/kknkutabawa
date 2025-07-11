@@ -63,6 +63,14 @@
                     <span class="px-0 mx-0 nav-text">Projects</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('budget.index') }}"
+                    class="side-link {{ $active === 'budget' ? 'active' : '' }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Anggaran">
+                    <i class='bx bxs-dollar-circle icon'></i>
+                    <span class="px-0 mx-0 nav-text">Anggaran</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
