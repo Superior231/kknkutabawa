@@ -28,6 +28,8 @@ Route::prefix('/')->middleware('auth')->group(function() {
     Route::resource('budget', BudgetController::class);
     Route::get('/budget-in', [BudgetController::class, 'create_budget_in'])->name('budgetIn.create');
     Route::get('/budget-in/{id}/edit', [BudgetController::class, 'edit_budget_in'])->name('budgetIn.edit');
+    Route::get('/anggaran-excel', [BudgetController::class, 'budget_excel'])->name('budget.excel');
+    Route::get('/anggaran-pdf', [BudgetController::class, 'budget_pdf'])->name('budget.pdf');
 });
 
 

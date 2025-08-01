@@ -71,11 +71,11 @@
             </div>
             <hr>
             <div class="flex gap-1 actions d-grid d-md-flex justify-content-md-center w-100">
-                <a href="#" onclick="showOngoingFeatureAlert()" class="gap-1 px-4 py-2 rounded-10 btn btn-success d-flex align-items-center justify-content-center">
+                <a href="{{ route('budget.excel') }}" class="gap-1 px-4 py-2 rounded-10 btn btn-success d-flex align-items-center justify-content-center">
                     <i class='bx bx-printer'></i>
                     Print to Excel
                 </a>
-                <a href="#" onclick="showOngoingFeatureAlert()" class="gap-1 px-4 py-2 rounded-10 btn btn-danger d-flex align-items-center justify-content-center">
+                <a href="{{ route('budget.pdf') }}" class="gap-1 px-4 py-2 rounded-10 btn btn-danger d-flex align-items-center justify-content-center">
                     <i class='bx bx-printer'></i>
                     Print to PDF
                 </a>
@@ -398,25 +398,6 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     document.getElementById('delete-budget-form-' + budgetId).submit();
-                }
-            });
-        }
-    </script>
-
-    <script>
-        function showOngoingFeatureAlert() {
-            Swal.fire({
-                icon: 'info',
-                title: 'Fitur ini masih dalam pengembangan',
-                text: 'Mohon maaf, fitur ini masih dalam pengembangan dan belum tersedia untuk digunakan. Kami akan segera menginformasikan Anda ketika fitur ini sudah siap digunakan.',
-                confirmButtonText: 'Ok',
-                customClass: {
-                    popup: 'sw-popup',
-                    title: 'sw-title',
-                    htmlContainer: 'sw-text',
-                    icon: 'sw-icon',
-                    closeButton: 'bg-secondary border-0 shadow-none',
-                    confirmButton: 'bg-primary border-0 shadow-none',
                 }
             });
         }

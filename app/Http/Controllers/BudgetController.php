@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\BudgetExportExcel;
 use App\Models\budget;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BudgetExportPdf;
 
 class BudgetController extends Controller
 {
@@ -205,5 +208,21 @@ class BudgetController extends Controller
         } else {
             return redirect()->route('budget.index')->with('error', 'Biaya pengeluaran gagal dihapus!');
         }
+    }
+
+    public function show($id)
+    {
+        return redirect()->route('budget.excel')->with('error', 'Halaman tidak tersedia.');
+    }
+
+    public function budget_excel()
+    {
+        return Excel::download(new BudgetExportExcel, 'Anggaran KKN Kutabawa 2025.xlsx');
+    }
+
+    public function budget_pdf()
+    {
+        $exportPdf = new BudgetExportPdf();
+        $exportPdf->exportPdf();
     }
 }
