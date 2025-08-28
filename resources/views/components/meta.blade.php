@@ -13,7 +13,8 @@
 
     // Gunakan thumbnail jika tersedia, jika tidak dan ini halaman profil, gunakan avatar
     if (!empty($thumbnail)) {
-        $thumbnailUrl = asset('storage/thumbnails/' . $thumbnail);
+        $fileName = rawurlencode($thumbnail); // otomatis ubah spasi jadi %20
+        $thumbnailUrl = asset('storage/thumbnails/' . $fileName);
     } elseif ($isProfilePage && $user) {
         $thumbnailUrl = $avatarUrl;
     } else {
