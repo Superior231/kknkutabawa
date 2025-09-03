@@ -22,8 +22,10 @@ class BudgetExportExcel implements WithStyles, FromView, WithTitle, ShouldAutoSi
     {
         $budgets = Budget::where('price_out', '>', 0)->orderBy('name', 'asc')->get();
         $budgets_in = Budget::where('price_in', '>', 0)->orderBy('name', 'asc')->get();
-        $sum_budget = Budget::sum('price_out');
-        $sum_budget_in = Budget::sum('price_in');
+        $sum_budget = $budgets->sum(function ($budget) {
+            return $budget->price_out * $budget->quantity;
+        });
+        $sum_budget_in = $budgets_in->sum('price_in');
         $saldo = $sum_budget_in - $sum_budget;
 
         return view('exports.budgetExcel', [
