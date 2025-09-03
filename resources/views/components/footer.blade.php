@@ -37,6 +37,9 @@
                     <div class="gap-3 mb-4 col col-6 col-md-3 d-flex align-items-start flex-column">
                         <p class="py-0 my-0 fw-bold footer-nav-title">Ikuti Kami</p>
                         <div class="gap-2 link d-flex flex-column">
+                            <a href="https://www.youtube.com/@kkn.desakutabawa" class="gap-1 d-flex align-items-center" target="_blank">
+                                <i class='bx bxl-youtube'></i> YouTube
+                            </a>
                             <a href="https://www.instagram.com/kkn.desakutabawa/" class="gap-1 d-flex align-items-center" target="_blank">
                                 <i class='bx bxl-instagram-alt'></i> Instagram
                             </a>
