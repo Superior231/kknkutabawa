@@ -16,7 +16,9 @@ class BudgetController extends Controller
     {
         $budgets = budget::orderBy('date', 'asc')->get();
         $total_pemasukan = Budget::sum('price_in');
-        $total_pengeluaran = Budget::sum('price_out');
+        $total_pengeluaran = Budget::get()->sum(function($budget) {
+            return $budget->price_out * $budget->quantity;
+        });
         $sisa_anggaran = $total_pemasukan - $total_pengeluaran;
 
         return view('pages.budget.index', [
