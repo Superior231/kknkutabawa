@@ -99,9 +99,9 @@ class BudgetController extends Controller
         $budget = budget::create($data);
 
         if ($budget) {
-            return redirect()->route('budget.index')->with('success', 'Biaya pengeluaran berhasil ditambahkan!');
+            return redirect()->route('budget.index')->with('success', 'Biaya berhasil ditambahkan!');
         } else {
-            return redirect()->route('budget.index')->with('error', 'Biaya pengeluaran gagal ditambahkan!');
+            return redirect()->route('budget.index')->with('error', 'Biaya gagal ditambahkan!');
         }
     }
 
@@ -185,9 +185,9 @@ class BudgetController extends Controller
         $budget->update($data);
 
         if ($budget) {
-            return redirect()->route('budget.index')->with('success', 'Biaya pengeluaran berhasil diubah!');
+            return redirect()->route('budget.index')->with('success', 'Biaya berhasil diubah!');
         } else {
-            return redirect()->route('budget.index')->with('error', 'Biaya pengeluaran gagal diubah!');
+            return redirect()->route('budget.index')->with('error', 'Biaya gagal diubah!');
         }
     }
 
@@ -204,9 +204,9 @@ class BudgetController extends Controller
         $budget->delete();
 
         if ($budget) {
-            return redirect()->route('budget.index')->with('success', 'Biaya pengeluaran berhasil dihapus!');
+            return redirect()->route('budget.index')->with('success', 'Biaya berhasil dihapus!');
         } else {
-            return redirect()->route('budget.index')->with('error', 'Biaya pengeluaran gagal dihapus!');
+            return redirect()->route('budget.index')->with('error', 'Biaya gagal dihapus!');
         }
     }
 
