@@ -674,6 +674,11 @@ section.thumbnail img {
     color: var(--color-blue-badge-opacity) !important;
     border-color: var(--bg-blue) !important;
 }
+.badge.bg-unggulan {
+    background-color: var(--primary-color) !important;
+    color: var(--bg-warning) !important;
+    border: none !important;
+}
 .badge.bg-default {
     background-color: var(--primary-color);
     color: var(--text-light) !important;

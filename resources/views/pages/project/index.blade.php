@@ -106,6 +106,7 @@
                                                 'Kesehatan' => 'bg-kesehatan',
                                                 'Lingkungan' => 'bg-lingkungan',
                                                 'Pendidikan' => 'bg-pendidikan',
+                                                'Unggulan' => 'bg-unggulan',
                                                 default => 'bg-default',
                                             };
                                     
@@ -115,6 +116,7 @@
                                                 'Kesehatan' => 'fa-heart-pulse',
                                                 'Lingkungan' => 'fa-leaf',
                                                 'Pendidikan' => 'fa-graduation-cap',
+                                                'Unggulan' => 'fa-thumbs-up',
                                                 default => 'fa-circle-question',
                                             };
                                         @endphp

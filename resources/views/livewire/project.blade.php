@@ -1,7 +1,4 @@
 <div>
-    @php
-        
-    @endphp
     <div class="gap-2 actions d-flex justify-content-between">
         <!-- Filters -->
         <div class="gap-2 container-filters d-flex position-relative">
@@ -85,6 +82,7 @@
                                         'Kesehatan' => 'bg-kesehatan',
                                         'Lingkungan' => 'bg-lingkungan',
                                         'Pendidikan' => 'bg-pendidikan',
+                                        'Unggulan' => 'bg-unggulan',
                                         default => 'bg-default',
                                     };
                             
@@ -94,6 +92,7 @@
                                         'Kesehatan' => 'fa-heart-pulse',
                                         'Lingkungan' => 'fa-leaf',
                                         'Pendidikan' => 'fa-graduation-cap',
+                                        'Unggulan' => 'fa-thumbs-up',
                                         default => 'fa-circle-question',
                                     };
                                 @endphp
