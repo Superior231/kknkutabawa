@@ -39,13 +39,14 @@
     <div class="mt-2 category">
         @foreach ($sortedCategoryFilters as $filter)
             @php
-                $category = trim($filter); // ✅ Perbaikan di sini
+                $category = trim($filter);
                 $badgeClass = match ($category) {
                     'Ekonomi' => 'bg-ekonomi',
                     'Jati Diri' => 'bg-jatidiri',
                     'Kesehatan' => 'bg-kesehatan',
                     'Lingkungan' => 'bg-lingkungan',
                     'Pendidikan' => 'bg-pendidikan',
+                    'Unggulan' => 'bg-unggulan',
                     default => 'bg-default',
                 };
         
@@ -55,6 +56,7 @@
                     'Kesehatan' => 'fa-heart-pulse',
                     'Lingkungan' => 'fa-leaf',
                     'Pendidikan' => 'fa-graduation-cap',
+                    'Unggulan' => 'fa-thumbs-up',
                     default => 'fa-circle-question',
                 };
             @endphp
@@ -75,7 +77,7 @@
                         <div class="mt-2 mb-3 category fs-7">
                             @foreach (explode(',', $item->category) as $categories)
                                 @php
-                                    $category = trim($categories); // remove leading/trailing spaces
+                                    $category = trim($categories);
                                     $badgeClass = match ($category) {
                                         'Ekonomi' => 'bg-ekonomi',
                                         'Jati Diri' => 'bg-jatidiri',
