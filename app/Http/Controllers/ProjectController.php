@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Intervention\Image\Facades\Image;
 
 class ProjectController extends Controller
 {
@@ -62,10 +63,15 @@ class ProjectController extends Controller
 
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('thumbnails', $fileName, 'public');
+            $fileName = time() . '_' . pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '.webp';
+            $image = Image::make($file)->resize(1200, 1200, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->encode('webp', 80);
+
+            Storage::disk('public')->put('thumbnails/' . $fileName, (string) $image);
             $data['thumbnail'] = $fileName;
-        }        
+        }
         
         $project = Project::create($data);
 
@@ -141,8 +147,13 @@ class ProjectController extends Controller
             }
         
             $file = $request->file('thumbnail');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('thumbnails', $fileName, 'public');
+            $fileName = time() . '_' . pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '.webp';
+            $image = Image::make($file)->resize(1200, 1200, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->encode('webp', 80);
+            
+            Storage::disk('public')->put('thumbnails/' . $fileName, (string) $image);
             $project->thumbnail = $fileName;
         }
         
